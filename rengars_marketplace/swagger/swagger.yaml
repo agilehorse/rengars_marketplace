@@ -1,0 +1,638 @@
+openapi: 3.0.1
+info:
+  title: Rengars Marketplace API
+  description: An API for headhunters and job applicants. Headhunters post job offers
+    for which an applicant can post an application.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Job offers
+    description: An api for manipulation with job offers.
+  - name: Applications
+    description: An api for manipulation with job applications
+paths:
+  /marketplace/jobOffers:
+    get:
+      tags:
+        - Job offers
+      summary: Gets all Job offers.
+      operationId: marketplace_job_offers_get
+      responses:
+        "200":
+          description: Data successfully obtained.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobOffer'
+                x-content-type: application/json
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+    post:
+      tags:
+        - Job offers
+      summary: Creates a Job offer.
+      operationId: marketplace_job_offers_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobOfferDto'
+        required: true
+      responses:
+        "200":
+          description: Successful creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOffer'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+  /marketplace/jobOffers/{id}:
+    get:
+      tags:
+        - Job offers
+      summary: Gets a job offer by its id.
+      operationId: marketplace_job_offers_id_get
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+        - name: includeApplications
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: The job offer was obtained successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOffer'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+    put:
+      tags:
+        - Job offers
+      summary: Updates a job offer by its id.
+      operationId: marketplace_job_offers_id_put
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobOfferDto'
+        required: true
+      responses:
+        "200":
+          description: The job offer was updated successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer is archived - readonly.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+  /marketplace/jobOffers/{id}/archive:
+    put:
+      tags:
+        - Job offers
+      summary: Archives a job offer by its id.
+      operationId: marketplace_job_offers_id_archive_put
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: The job offer was archived successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer is archived - readonly.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+  /marketplace/jobApplications:
+    get:
+      tags:
+        - Applications
+      summary: Gets all Job applications.
+      operationId: marketplace_job_applications_get
+      responses:
+        "200":
+          description: Data successfully obtained.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobApplication'
+                x-content-type: application/json
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+    post:
+      tags:
+        - Applications
+      summary: Creates a job application.
+      operationId: marketplace_job_applications_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobApplicationDto'
+        required: true
+      responses:
+        "200":
+          description: Successful creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplication'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer for this application is no longer active.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+  /marketplace/jobApplications/{id}:
+    get:
+      tags:
+        - Applications
+      summary: Gets a job application by its id.
+      operationId: marketplace_job_applications_id_get
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: The job application was obtained successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplication'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The application with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+    put:
+      tags:
+        - Applications
+      summary: Updates an application by its id.
+      operationId: marketplace_job_applications_id_put
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobApplicationDto'
+        required: true
+      responses:
+        "200":
+          description: The job application was updated successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer for this application is no longer active.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+  /marketplace/jobApplications/{id}/changeState:
+    put:
+      tags:
+        - Applications
+      summary: Changes a state of a job application by its id.
+      operationId: marketplace_job_applications_id_change_state_put
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplicationStateDto'
+        required: true
+      responses:
+        "200":
+          description: The job offer was obtained successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "403":
+          description: The user not authorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The new state of job application is in conflict with the state
+            of job offer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+components:
+  schemas:
+    JobOffer:
+      required:
+        - companyName
+        - description
+        - id
+        - positionName
+        - poster
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        poster:
+          $ref: '#/components/schemas/User'
+        companyName:
+          type: string
+        positionName:
+          type: string
+        description:
+          type: string
+        dateCreated:
+          type: string
+          format: date-time
+        dateArchived:
+          type: string
+          format: date-time
+        jobApplications:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobApplication'
+      example:
+        positionName: FullStack Java React Developer
+        dateArchived: { }
+        dateCreated: { }
+        companyName: FitWolfe
+        description: We are looking for a fellow developer that can help us build
+          the greatest online fitness training app.
+        id: 1
+        poster:
+          phoneNumber: +420 608 801 031
+          birthDate: 1998-01-03
+          email: dmbulko@gmail.com
+    CreateJobOfferDto:
+      required:
+        - companyName
+        - description
+        - positionName
+        - poster
+      type: object
+      properties:
+        poster:
+          $ref: '#/components/schemas/User'
+        companyName:
+          type: string
+        positionName:
+          type: string
+        description:
+          type: string
+      example:
+        positionName: FullStack Java React Developer
+        companyName: FitWolfe
+        description: We are looking for a fellow developer that can help us build
+          the greatest online fitness training app.
+        poster:
+          phoneNumber: +420 608 801 031
+          birthDate: 1998-01-03
+          email: dmbulko@gmail.com
+    UpdateJobOfferDto:
+      required:
+        - companyName
+        - description
+        - positionName
+      type: object
+      properties:
+        companyName:
+          type: string
+        positionName:
+          type: string
+        description:
+          type: string
+      example:
+        positionName: FullStack Java React Developer
+        companyName: FitWolfe
+        description: We are looking for a fellow developer that can help us build
+          the greatest online fitness training app.
+    JobApplicationState:
+      type: string
+      enum:
+        - NEW
+        - ACTIVE
+        - REJECTED
+        - ACCEPTED
+        - WITHDRAWN
+    JobApplicationStateDto:
+      type: object
+      properties:
+        state:
+          $ref: '#/components/schemas/JobApplicationState'
+      example:
+        state: ACTIVE
+    JobApplication:
+      required:
+        - applicant
+        - id
+        - jobOfferId
+        - note
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        applicant:
+          $ref: '#/components/schemas/User'
+        note:
+          type: string
+        jobOfferId:
+          type: integer
+        state:
+          $ref: '#/components/schemas/JobApplicationState'
+        dateCreated:
+          type: string
+          format: date-time
+        dateClosed:
+          type: string
+          format: date-time
+      example:
+        note: Hello I have 3 years experience. Please give me work or I will starve
+          to death.
+        dateCreated: { }
+        jobOfferId: 6
+        id: 1
+        state: NEW
+        dateClosed: { }
+        applicant:
+          phoneNumber: +420 420 420 420
+          birthDate: 2000-01-23
+          email: best.developer@ever.com
+    CreateJobApplicationDto:
+      required:
+        - applicant
+        - jobOfferId
+        - note
+      type: object
+      properties:
+        applicant:
+          $ref: '#/components/schemas/User'
+        note:
+          type: string
+        jobOfferId:
+          type: integer
+      example:
+        note: Hello I have 3 years experience. Please give me work or I will starve
+          to death.
+        jobOfferId: 6
+        applicant:
+          phoneNumber: +420 420 420 420
+          birthDate: 2000-01-23
+          email: best.developer@ever.com
+    UpdateJobApplicationDto:
+      type: object
+      properties:
+        note:
+          type: string
+      example:
+        note: Hello I have 3 years experience. Please give me work or I will starve
+          to death.
+    User:
+      required:
+        - birthDate
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        phoneNumber:
+          type: string
+      example:
+        phoneNumber: +420 420 420 420
+        birthDate: 2000-01-23
+        email: best.developer@ever.com
+    ErrorDto:
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          type: string
+          description: Unique id of the error
+        message:
+          type: string
+          description: Error message
+      description: DTO containing additional data about an error that occurred when
+        calling the api.
+      example:
+        message: Job offer with this id is archived - readonly!
+        type: errors.joboffers.archived
+  parameters:
+    includeApplications:
+      name: includeApplications
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: boolean
+    id:
+      name: id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: integer
+        format: int32
+
