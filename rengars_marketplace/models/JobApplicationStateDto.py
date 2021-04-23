@@ -1,13 +1,13 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from datetime import date, datetime  # noqa: F401
 
+from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
-from rengars_marketplace.models.Model import Model
-from rengars_marketplace.models.JobApplicationState import JobApplicationState  # noqa: F401,E501
 from rengars_marketplace import util
+from rengars_marketplace.models.JobApplicationState import JobApplicationState  # noqa: F401,E501
+from rengars_marketplace.models.Model import Model
 
 
 class JobApplicationStateDto(Model):

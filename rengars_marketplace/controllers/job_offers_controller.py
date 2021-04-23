@@ -1,11 +1,8 @@
 import connexion
-import six
 
 from rengars_marketplace.models.CreateJobOfferDto import CreateJobOfferDto  # noqa: E501
-from rengars_marketplace.models.ErrorDto import ErrorDto  # noqa: E501
 from rengars_marketplace.models.JobOffer import JobOffer  # noqa: E501
 from rengars_marketplace.models.UpdateJobOfferDto import UpdateJobOfferDto  # noqa: E501
-from rengars_marketplace import util
 
 
 def marketplace_job_offers_get():  # noqa: E501
@@ -15,19 +12,6 @@ def marketplace_job_offers_get():  # noqa: E501
 
 
     :rtype: List[JobOffer]
-    """
-    return 'do some magic!'
-
-
-def marketplace_job_offers_id_archive_put(id):  # noqa: E501
-    """Archives a job offer by its id.
-
-     # noqa: E501
-
-    :param id: 
-    :type id: int
-
-    :rtype: None
     """
     return 'do some magic!'
 

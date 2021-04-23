@@ -1,13 +1,12 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from datetime import date, datetime  # noqa: F401
 
+from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
-from rengars_marketplace.models.Model import Model
-from rengars_marketplace.models.User import User  # noqa: F401,E501
 from rengars_marketplace import util
+from rengars_marketplace.models.Model import Model
 
 
 class CreateJobOfferDto(Model):
@@ -16,12 +15,12 @@ class CreateJobOfferDto(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, poster: User = None, company_name: str = None, position_name: str = None,
+    def __init__(self, poster_id: int = None, company_name: str = None, position_name: str = None,
                  description: str = None):  # noqa: E501
         """CreateJobOfferDto - a model defined in Swagger
 
-        :param poster: The poster of this CreateJobOfferDto.  # noqa: E501
-        :type poster: User
+        :param poster_id: The poster_id of this CreateJobOfferDto.  # noqa: E501
+        :type poster_id: int
         :param company_name: The company_name of this CreateJobOfferDto.  # noqa: E501
         :type company_name: str
         :param position_name: The position_name of this CreateJobOfferDto.  # noqa: E501
@@ -30,19 +29,19 @@ class CreateJobOfferDto(Model):
         :type description: str
         """
         self.swagger_types = {
-            'poster': User,
+            'poster_id': int,
             'company_name': str,
             'position_name': str,
             'description': str
         }
 
         self.attribute_map = {
-            'poster': 'poster',
+            'poster_id': 'posterId',
             'company_name': 'companyName',
             'position_name': 'positionName',
             'description': 'description'
         }
-        self._poster = poster
+        self._poster_id = poster_id
         self._company_name = company_name
         self._position_name = position_name
         self._description = description
@@ -59,27 +58,27 @@ class CreateJobOfferDto(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def poster(self) -> User:
-        """Gets the poster of this CreateJobOfferDto.
+    def poster_id(self) -> int:
+        """Gets the poster_id of this CreateJobOfferDto.
 
 
-        :return: The poster of this CreateJobOfferDto.
-        :rtype: User
+        :return: The poster_id of this CreateJobOfferDto.
+        :rtype: int
         """
-        return self._poster
+        return self._poster_id
 
-    @poster.setter
-    def poster(self, poster: User):
-        """Sets the poster of this CreateJobOfferDto.
+    @poster_id.setter
+    def poster_id(self, poster_id: int):
+        """Sets the poster_id of this CreateJobOfferDto.
 
 
-        :param poster: The poster of this CreateJobOfferDto.
-        :type poster: User
+        :param poster_id: The poster_id of this CreateJobOfferDto.
+        :type poster_id: int
         """
-        if poster is None:
-            raise ValueError("Invalid value for `poster`, must not be `None`")  # noqa: E501
+        if poster_id is None:
+            raise ValueError("Invalid value for `poster_id`, must not be `None`")  # noqa: E501
 
-        self._poster = poster
+        self._poster_id = poster_id
 
     @property
     def company_name(self) -> str:

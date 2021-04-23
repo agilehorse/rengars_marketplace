@@ -1,14 +1,14 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from datetime import date, datetime  # noqa: F401
 
+from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
-from rengars_marketplace.models.Model import Model
-from rengars_marketplace.models.JobApplication import JobApplication  # noqa: F401,E501
-from rengars_marketplace.models.User import User  # noqa: F401,E501
 from rengars_marketplace import util
+from rengars_marketplace.models.JobApplication import JobApplication  # noqa: F401,E501
+from rengars_marketplace.models.JobOfferState import JobOfferState
+from rengars_marketplace.models.Model import Model
 
 
 class JobOffer(Model):
@@ -17,56 +17,61 @@ class JobOffer(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int = None, poster: User = None, company_name: str = None, position_name: str = None,
-                 description: str = None, date_created: datetime = None, date_archived: datetime = None,
-                 job_applications: List[JobApplication] = None):  # noqa: E501
+    def __init__(self, id: int = None, poster_id: int = None, company_name: str = None, position_name: str = None,
+                 description: str = None, state: JobOfferState = None, date_created: datetime = None,
+                 date_ended: datetime = None, job_applications: List[JobApplication] = None):  # noqa: E501
         """JobOffer - a model defined in Swagger
 
         :param id: The id of this JobOffer.  # noqa: E501
         :type id: int
-        :param poster: The poster of this JobOffer.  # noqa: E501
-        :type poster: User
+        :param poster_id: The poster_id of this JobOffer.  # noqa: E501
+        :type poster_id: int
         :param company_name: The company_name of this JobOffer.  # noqa: E501
         :type company_name: str
         :param position_name: The position_name of this JobOffer.  # noqa: E501
         :type position_name: str
         :param description: The description of this JobOffer.  # noqa: E501
         :type description: str
+        :param state: The state of this JobOffer.  # noqa: E501
+        :type state: JobOfferState
         :param date_created: The date_created of this JobOffer.  # noqa: E501
         :type date_created: datetime
-        :param date_archived: The date_archived of this JobOffer.  # noqa: E501
-        :type date_archived: datetime
+        :param date_ended: The date_ended of this JobOffer.  # noqa: E501
+        :type date_ended: datetime
         :param job_applications: The job_applications of this JobOffer.  # noqa: E501
         :type job_applications: List[JobApplication]
         """
         self.swagger_types = {
             'id': int,
-            'poster': User,
+            'poster_id': int,
             'company_name': str,
             'position_name': str,
             'description': str,
+            'state': JobOfferState,
             'date_created': datetime,
-            'date_archived': datetime,
+            'date_ended': datetime,
             'job_applications': List[JobApplication]
         }
 
         self.attribute_map = {
             'id': 'id',
-            'poster': 'poster',
+            'poster_id': 'posterId',
             'company_name': 'companyName',
             'position_name': 'positionName',
             'description': 'description',
+            'state': 'state',
             'date_created': 'dateCreated',
-            'date_archived': 'dateArchived',
+            'date_ended': 'dateEnded',
             'job_applications': 'jobApplications'
         }
         self._id = id
-        self._poster = poster
+        self._poster_id = poster_id
         self._company_name = company_name
         self._position_name = position_name
         self._description = description
+        self._state = state
         self._date_created = date_created
-        self._date_archived = date_archived
+        self._date_ended = date_ended
         self._job_applications = job_applications
 
     @classmethod
@@ -104,27 +109,27 @@ class JobOffer(Model):
         self._id = id
 
     @property
-    def poster(self) -> User:
-        """Gets the poster of this JobOffer.
+    def poster_id(self) -> int:
+        """Gets the poster_id of this JobOffer.
 
 
-        :return: The poster of this JobOffer.
-        :rtype: User
+        :return: The poster_id of this JobOffer.
+        :rtype: int
         """
-        return self._poster
+        return self._poster_id
 
-    @poster.setter
-    def poster(self, poster: User):
-        """Sets the poster of this JobOffer.
+    @poster_id.setter
+    def poster_id(self, poster_id: int):
+        """Sets the poster_id of this JobOffer.
 
 
-        :param poster: The poster of this JobOffer.
-        :type poster: User
+        :param poster_id: The poster_id of this JobOffer.
+        :type poster_id: int
         """
-        if poster is None:
-            raise ValueError("Invalid value for `poster`, must not be `None`")  # noqa: E501
+        if poster_id is None:
+            raise ValueError("Invalid value for `poster_id`, must not be `None`")  # noqa: E501
 
-        self._poster = poster
+        self._poster_id = poster_id
 
     @property
     def company_name(self) -> str:
@@ -196,6 +201,27 @@ class JobOffer(Model):
         self._description = description
 
     @property
+    def state(self) -> JobOfferState:
+        """Gets the state of this JobOffer.
+
+
+        :return: The state of this JobOffer.
+        :rtype: JobOfferState
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state: JobOfferState):
+        """Sets the state of this JobOffer.
+
+
+        :param state: The state of this JobOffer.
+        :type state: JobOfferState
+        """
+
+        self._state = state
+
+    @property
     def date_created(self) -> datetime:
         """Gets the date_created of this JobOffer.
 
@@ -217,25 +243,25 @@ class JobOffer(Model):
         self._date_created = date_created
 
     @property
-    def date_archived(self) -> datetime:
-        """Gets the date_archived of this JobOffer.
+    def date_ended(self) -> datetime:
+        """Gets the date_ended of this JobOffer.
 
 
-        :return: The date_archived of this JobOffer.
+        :return: The date_ended of this JobOffer.
         :rtype: datetime
         """
-        return self._date_archived
+        return self._date_ended
 
-    @date_archived.setter
-    def date_archived(self, date_archived: datetime):
-        """Sets the date_archived of this JobOffer.
+    @date_ended.setter
+    def date_ended(self, date_ended: datetime):
+        """Sets the date_ended of this JobOffer.
 
 
-        :param date_archived: The date_archived of this JobOffer.
-        :type date_archived: datetime
+        :param date_ended: The date_ended of this JobOffer.
+        :type date_ended: datetime
         """
 
-        self._date_archived = date_archived
+        self._date_ended = date_ended
 
     @property
     def job_applications(self) -> List[JobApplication]:

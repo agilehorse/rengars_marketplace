@@ -1,7 +1,6 @@
-from connexion.apps.flask_app import FlaskJSONEncoder
 import six
-
-from rengars_marketplace.models.Model import Model
+from connexion.apps.flask_app import FlaskJSONEncoder
+from swagger_server.models.base_model_ import Model
 
 
 class JSONEncoder(FlaskJSONEncoder):

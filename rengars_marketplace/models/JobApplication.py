@@ -1,14 +1,13 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from datetime import date, datetime  # noqa: F401
 
+from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
-from rengars_marketplace.models.Model import Model
-from rengars_marketplace.models.JobApplicationState import JobApplicationState  # noqa: F401,E501
-from rengars_marketplace.models.User import User  # noqa: F401,E501
 from rengars_marketplace import util
+from rengars_marketplace.models.JobApplicationState import JobApplicationState  # noqa: F401,E501
+from rengars_marketplace.models.Model import Model
 
 
 class JobApplication(Model):
@@ -17,15 +16,15 @@ class JobApplication(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int = None, applicant: User = None, note: str = None, job_offer_id: int = None,
+    def __init__(self, id: int = None, applicant_id: int = None, note: str = None, job_offer_id: int = None,
                  state: JobApplicationState = None, date_created: datetime = None,
                  date_closed: datetime = None):  # noqa: E501
         """JobApplication - a model defined in Swagger
 
         :param id: The id of this JobApplication.  # noqa: E501
         :type id: int
-        :param applicant: The applicant of this JobApplication.  # noqa: E501
-        :type applicant: User
+        :param applicant_id: The applicant_id of this JobApplication.  # noqa: E501
+        :type applicant_id: int
         :param note: The note of this JobApplication.  # noqa: E501
         :type note: str
         :param job_offer_id: The job_offer_id of this JobApplication.  # noqa: E501
@@ -39,7 +38,7 @@ class JobApplication(Model):
         """
         self.swagger_types = {
             'id': int,
-            'applicant': User,
+            'applicant_id': int,
             'note': str,
             'job_offer_id': int,
             'state': JobApplicationState,
@@ -49,7 +48,7 @@ class JobApplication(Model):
 
         self.attribute_map = {
             'id': 'id',
-            'applicant': 'applicant',
+            'applicant_id': 'applicantId',
             'note': 'note',
             'job_offer_id': 'jobOfferId',
             'state': 'state',
@@ -57,7 +56,7 @@ class JobApplication(Model):
             'date_closed': 'dateClosed'
         }
         self._id = id
-        self._applicant = applicant
+        self._applicant_id = applicant_id
         self._note = note
         self._job_offer_id = job_offer_id
         self._state = state
@@ -99,27 +98,27 @@ class JobApplication(Model):
         self._id = id
 
     @property
-    def applicant(self) -> User:
-        """Gets the applicant of this JobApplication.
+    def applicant_id(self) -> int:
+        """Gets the applicant_id of this JobApplication.
 
 
-        :return: The applicant of this JobApplication.
-        :rtype: User
+        :return: The applicant_id of this JobApplication.
+        :rtype: int
         """
-        return self._applicant
+        return self._applicant_id
 
-    @applicant.setter
-    def applicant(self, applicant: User):
-        """Sets the applicant of this JobApplication.
+    @applicant_id.setter
+    def applicant_id(self, applicant_id: int):
+        """Sets the applicant_id of this JobApplication.
 
 
-        :param applicant: The applicant of this JobApplication.
-        :type applicant: User
+        :param applicant_id: The applicant_id of this JobApplication.
+        :type applicant_id: int
         """
-        if applicant is None:
-            raise ValueError("Invalid value for `applicant`, must not be `None`")  # noqa: E501
+        if applicant_id is None:
+            raise ValueError("Invalid value for `applicant_id`, must not be `None`")  # noqa: E501
 
-        self._applicant = applicant
+        self._applicant_id = applicant_id
 
     @property
     def note(self) -> str:

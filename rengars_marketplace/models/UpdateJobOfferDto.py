@@ -1,12 +1,13 @@
 # coding: utf-8
 
 from __future__ import absolute_import
-from datetime import date, datetime  # noqa: F401
 
+from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
-from rengars_marketplace.models.Model import Model
 from rengars_marketplace import util
+from rengars_marketplace.models.JobOfferState import JobOfferState
+from rengars_marketplace.models.Model import Model
 
 
 class UpdateJobOfferDto(Model):
@@ -15,30 +16,20 @@ class UpdateJobOfferDto(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, company_name: str = None, position_name: str = None, description: str = None):  # noqa: E501
+    def __init__(self, state: JobOfferState = None):  # noqa: E501
         """UpdateJobOfferDto - a model defined in Swagger
 
-        :param company_name: The company_name of this UpdateJobOfferDto.  # noqa: E501
-        :type company_name: str
-        :param position_name: The position_name of this UpdateJobOfferDto.  # noqa: E501
-        :type position_name: str
-        :param description: The description of this UpdateJobOfferDto.  # noqa: E501
-        :type description: str
+        :param state: The state of this UpdateJobOfferDto.  # noqa: E501
+        :type state: JobOfferState
         """
         self.swagger_types = {
-            'company_name': str,
-            'position_name': str,
-            'description': str
+            'state': JobOfferState
         }
 
         self.attribute_map = {
-            'company_name': 'companyName',
-            'position_name': 'positionName',
-            'description': 'description'
+            'state': 'state'
         }
-        self._company_name = company_name
-        self._position_name = position_name
-        self._description = description
+        self._state = state
 
     @classmethod
     def from_dict(cls, dikt) -> 'UpdateJobOfferDto':
@@ -52,70 +43,24 @@ class UpdateJobOfferDto(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def company_name(self) -> str:
-        """Gets the company_name of this UpdateJobOfferDto.
+    def state(self) -> JobOfferState:
+        """Gets the state of this UpdateJobOfferDto.
 
 
-        :return: The company_name of this UpdateJobOfferDto.
-        :rtype: str
+        :return: The state of this UpdateJobOfferDto.
+        :rtype: JobOfferState
         """
-        return self._company_name
+        return self._state
 
-    @company_name.setter
-    def company_name(self, company_name: str):
-        """Sets the company_name of this UpdateJobOfferDto.
+    @state.setter
+    def state(self, state: JobOfferState):
+        """Sets the state of this UpdateJobOfferDto.
 
 
-        :param company_name: The company_name of this UpdateJobOfferDto.
-        :type company_name: str
+        :param state: The state of this UpdateJobOfferDto.
+        :type state: JobOfferState
         """
-        if company_name is None:
-            raise ValueError("Invalid value for `company_name`, must not be `None`")  # noqa: E501
+        if state is None:
+            raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
 
-        self._company_name = company_name
-
-    @property
-    def position_name(self) -> str:
-        """Gets the position_name of this UpdateJobOfferDto.
-
-
-        :return: The position_name of this UpdateJobOfferDto.
-        :rtype: str
-        """
-        return self._position_name
-
-    @position_name.setter
-    def position_name(self, position_name: str):
-        """Sets the position_name of this UpdateJobOfferDto.
-
-
-        :param position_name: The position_name of this UpdateJobOfferDto.
-        :type position_name: str
-        """
-        if position_name is None:
-            raise ValueError("Invalid value for `position_name`, must not be `None`")  # noqa: E501
-
-        self._position_name = position_name
-
-    @property
-    def description(self) -> str:
-        """Gets the description of this UpdateJobOfferDto.
-
-
-        :return: The description of this UpdateJobOfferDto.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description: str):
-        """Sets the description of this UpdateJobOfferDto.
-
-
-        :param description: The description of this UpdateJobOfferDto.
-        :type description: str
-        """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
-
-        self._description = description
+        self._state = state

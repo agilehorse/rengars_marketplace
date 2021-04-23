@@ -3,11 +3,8 @@
 from __future__ import absolute_import
 
 from flask import json
-from six import BytesIO
 
 from rengars_marketplace.models.CreateJobApplicationDto import CreateJobApplicationDto  # noqa: E501
-from rengars_marketplace.models.ErrorDto import ErrorDto  # noqa: E501
-from rengars_marketplace.models.JobApplication import JobApplication  # noqa: E501
 from rengars_marketplace.models.JobApplicationStateDto import JobApplicationStateDto  # noqa: E501
 from rengars_marketplace.models.UpdateJobApplicationDto import UpdateJobApplicationDto  # noqa: E501
 from rengars_marketplace.test import BaseTestCase
@@ -47,7 +44,7 @@ class TestApplicationsController(BaseTestCase):
         Gets a job application by its id.
         """
         response = self.client.open(
-            '/marketplace/jobApplications/{id}'.format(id=56),
+            '/marketplace/jobApplications/{id}'.format(id=789),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -59,7 +56,7 @@ class TestApplicationsController(BaseTestCase):
         """
         body = UpdateJobApplicationDto()
         response = self.client.open(
-            '/marketplace/jobApplications/{id}'.format(id=56),
+            '/marketplace/jobApplications/{id}'.format(id=789),
             method='PUT',
             data=json.dumps(body),
             content_type='application/json')
@@ -83,5 +80,4 @@ class TestApplicationsController(BaseTestCase):
 
 if __name__ == '__main__':
     import unittest
-
     unittest.main()

@@ -40,7 +40,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
     post:
       tags:
         - Job offers
@@ -71,7 +71,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
   /marketplace/jobOffers/{id}:
     get:
       tags:
@@ -86,7 +86,7 @@ paths:
           explode: false
           schema:
             type: integer
-            format: int32
+            format: int64
         - name: includeApplications
           in: query
           required: false
@@ -119,7 +119,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
     put:
       tags:
         - Job offers
@@ -133,7 +133,7 @@ paths:
           explode: false
           schema:
             type: integer
-            format: int32
+            format: int64
       requestBody:
         content:
           application/json:
@@ -167,50 +167,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
-  /marketplace/jobOffers/{id}/archive:
-    put:
-      tags:
-        - Job offers
-      summary: Archives a job offer by its id.
-      operationId: marketplace_job_offers_id_archive_put
-      parameters:
-        - name: id
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int32
-      responses:
-        "200":
-          description: The job offer was archived successfully
-        "400":
-          description: General error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "404":
-          description: The job offer with given id not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "409":
-          description: The job offer is archived - readonly.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
+      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
   /marketplace/jobApplications:
     get:
       tags:
@@ -239,7 +196,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+      x-openapi-router-controller: swagger_server.controllers.applications_controller
     post:
       tags:
         - Applications
@@ -276,7 +233,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+      x-openapi-router-controller: swagger_server.controllers.applications_controller
   /marketplace/jobApplications/{id}:
     get:
       tags:
@@ -291,7 +248,7 @@ paths:
           explode: false
           schema:
             type: integer
-            format: int32
+            format: int64
       responses:
         "200":
           description: The job application was obtained successfully
@@ -317,7 +274,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+      x-openapi-router-controller: swagger_server.controllers.applications_controller
     put:
       tags:
         - Applications
@@ -331,7 +288,7 @@ paths:
           explode: false
           schema:
             type: integer
-            format: int32
+            format: int64
       requestBody:
         content:
           application/json:
@@ -365,7 +322,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+      x-openapi-router-controller: swagger_server.controllers.applications_controller
   /marketplace/jobApplications/{id}/changeState:
     put:
       tags:
@@ -415,33 +372,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+      x-openapi-router-controller: swagger_server.controllers.applications_controller
 components:
   schemas:
+    JobOfferState:
+      type: string
+      enum:
+        - OPEN
+        - HIRED
+        - WITHDRAWN
     JobOffer:
       required:
         - companyName
         - description
         - id
         - positionName
-        - poster
+        - posterId
       type: object
       properties:
         id:
           type: integer
-          format: int32
-        poster:
-          $ref: '#/components/schemas/User'
+          format: int64
+        posterId:
+          type: integer
+          format: int64
         companyName:
           type: string
         positionName:
           type: string
         description:
           type: string
+        state:
+          $ref: '#/components/schemas/JobOfferState'
         dateCreated:
           type: string
           format: date-time
-        dateArchived:
+        dateEnded:
           type: string
           format: date-time
         jobApplications:
@@ -450,26 +416,24 @@ components:
             $ref: '#/components/schemas/JobApplication'
       example:
         positionName: FullStack Java React Developer
-        dateArchived: { }
-        dateCreated: { }
+        dateArchived: 2018-03-20T09:12:28Z
+        dateCreated: 2019-03-20T09:12:28Z
         companyName: FitWolfe
         description: We are looking for a fellow developer that can help us build
           the greatest online fitness training app.
         id: 1
-        poster:
-          phoneNumber: +420 608 801 031
-          birthDate: 1998-01-03
-          email: dmbulko@gmail.com
+        posterId: 7
     CreateJobOfferDto:
       required:
         - companyName
         - description
         - positionName
-        - poster
+        - posterId
       type: object
       properties:
-        poster:
-          $ref: '#/components/schemas/User'
+        posterId:
+          type: integer
+          format: int64
         companyName:
           type: string
         positionName:
@@ -481,28 +445,16 @@ components:
         companyName: FitWolfe
         description: We are looking for a fellow developer that can help us build
           the greatest online fitness training app.
-        poster:
-          phoneNumber: +420 608 801 031
-          birthDate: 1998-01-03
-          email: dmbulko@gmail.com
+        posterId: 4
     UpdateJobOfferDto:
       required:
-        - companyName
-        - description
-        - positionName
+        - state
       type: object
       properties:
-        companyName:
-          type: string
-        positionName:
-          type: string
-        description:
-          type: string
+        state:
+          $ref: '#/components/schemas/JobOfferState'
       example:
-        positionName: FullStack Java React Developer
-        companyName: FitWolfe
-        description: We are looking for a fellow developer that can help us build
-          the greatest online fitness training app.
+        state: HIRED
     JobApplicationState:
       type: string
       enum:
@@ -520,7 +472,7 @@ components:
         state: ACTIVE
     JobApplication:
       required:
-        - applicant
+        - applicantId
         - id
         - jobOfferId
         - note
@@ -528,9 +480,10 @@ components:
       properties:
         id:
           type: integer
-          format: int32
-        applicant:
-          $ref: '#/components/schemas/User'
+          format: int64
+        applicantId:
+          type: integer
+          format: int64
         note:
           type: string
         jobOfferId:
@@ -546,36 +499,32 @@ components:
       example:
         note: Hello I have 3 years experience. Please give me work or I will starve
           to death.
-        dateCreated: { }
+        dateCreated: 2018-03-20T09:12:28Z
         jobOfferId: 6
         id: 1
         state: NEW
-        dateClosed: { }
-        applicant:
-          phoneNumber: +420 420 420 420
-          birthDate: 2000-01-23
-          email: best.developer@ever.com
+        dateClosed: 2018-03-20T09:12:28Z
+        applicantId: 5
     CreateJobApplicationDto:
       required:
-        - applicant
+        - applicantId
         - jobOfferId
         - note
       type: object
       properties:
-        applicant:
-          $ref: '#/components/schemas/User'
+        applicantId:
+          type: integer
+          format: int64
         note:
           type: string
         jobOfferId:
           type: integer
+          format: int64
       example:
         note: Hello I have 3 years experience. Please give me work or I will starve
           to death.
         jobOfferId: 6
-        applicant:
-          phoneNumber: +420 420 420 420
-          birthDate: 2000-01-23
-          email: best.developer@ever.com
+        applicantId: 7
     UpdateJobApplicationDto:
       type: object
       properties:
@@ -584,23 +533,6 @@ components:
       example:
         note: Hello I have 3 years experience. Please give me work or I will starve
           to death.
-    User:
-      required:
-        - birthDate
-        - email
-      type: object
-      properties:
-        email:
-          type: string
-        birthDate:
-          type: string
-          format: date
-        phoneNumber:
-          type: string
-      example:
-        phoneNumber: +420 420 420 420
-        birthDate: 2000-01-23
-        email: best.developer@ever.com
     ErrorDto:
       required:
         - type
@@ -634,5 +566,5 @@ components:
       explode: false
       schema:
         type: integer
-        format: int32
+        format: int64
 
