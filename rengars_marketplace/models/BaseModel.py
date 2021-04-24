@@ -1,14 +1,14 @@
 import pprint
+import typing
 
 import six
-import typing
 
 from rengars_marketplace import util
 
 T = typing.TypeVar('T')
 
 
-class Model(object):
+class BaseModel(object):
     # swaggerTypes: The key is attribute name and the
     # value is attribute type.
     swagger_types = {}

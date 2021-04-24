@@ -13,19 +13,8 @@ from rengars_marketplace.test import BaseTestCase
 class TestApplicationsController(BaseTestCase):
     """ApplicationsController integration test stubs"""
 
-    def test_marketplace_job_applications_get(self):
-        """Test case for marketplace_job_applications_get
-
-        Gets all Job applications.
-        """
-        response = self.client.open(
-            '/marketplace/jobApplications',
-            method='GET')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
-    def test_marketplace_job_applications_id_change_state_put(self):
-        """Test case for marketplace_job_applications_id_change_state_put
+    def test_change_job_application_state(self):
+        """Test case for change_job_application_state
 
         Changes a state of a job application by its id.
         """
@@ -38,33 +27,8 @@ class TestApplicationsController(BaseTestCase):
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
-    def test_marketplace_job_applications_id_get(self):
-        """Test case for marketplace_job_applications_id_get
-
-        Gets a job application by its id.
-        """
-        response = self.client.open(
-            '/marketplace/jobApplications/{id}'.format(id=789),
-            method='GET')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
-    def test_marketplace_job_applications_id_put(self):
-        """Test case for marketplace_job_applications_id_put
-
-        Updates an application by its id.
-        """
-        body = UpdateJobApplicationDto()
-        response = self.client.open(
-            '/marketplace/jobApplications/{id}'.format(id=789),
-            method='PUT',
-            data=json.dumps(body),
-            content_type='application/json')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
-    def test_marketplace_job_applications_post(self):
-        """Test case for marketplace_job_applications_post
+    def test_create_job_application(self):
+        """Test case for create_job_application
 
         Creates a job application.
         """
@@ -77,7 +41,44 @@ class TestApplicationsController(BaseTestCase):
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
+    def test_get_job_application(self):
+        """Test case for get_job_application
+
+        Gets a job application by its id.
+        """
+        response = self.client.open(
+            '/marketplace/jobApplications/{id}'.format(id=789),
+            method='GET')
+        self.assert200(response,
+                       'Response body is : ' + response.data.decode('utf-8'))
+
+    def test_get_job_applications(self):
+        """Test case for get_job_applications
+
+        Gets all Job applications.
+        """
+        response = self.client.open(
+            '/marketplace/jobApplications',
+            method='GET')
+        self.assert200(response,
+                       'Response body is : ' + response.data.decode('utf-8'))
+
+    def test_update_job_application(self):
+        """Test case for update_job_application
+
+        Updates an application by its id.
+        """
+        body = UpdateJobApplicationDto()
+        response = self.client.open(
+            '/marketplace/jobApplications/{id}'.format(id=789),
+            method='PUT',
+            data=json.dumps(body),
+            content_type='application/json')
+        self.assert200(response,
+                       'Response body is : ' + response.data.decode('utf-8'))
+
 
 if __name__ == '__main__':
     import unittest
+
     unittest.main()

@@ -18,7 +18,7 @@ To run the server, please execute the following from the root directory:
 
 ```
 pip3 install -r requirements.txt
-python -m rengars_marketplace
+python3 -m swagger_server
 ```
 
 and open your browser to here:

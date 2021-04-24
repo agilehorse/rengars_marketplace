@@ -11,5 +11,7 @@ from rengars_marketplace.models.JobApplication import JobApplication
 from rengars_marketplace.models.JobApplicationState import JobApplicationState
 from rengars_marketplace.models.JobApplicationStateDto import JobApplicationStateDto
 from rengars_marketplace.models.JobOffer import JobOffer
+from rengars_marketplace.models.JobOfferState import JobOfferState
 from rengars_marketplace.models.UpdateJobApplicationDto import UpdateJobApplicationDto
 from rengars_marketplace.models.UpdateJobOfferDto import UpdateJobOfferDto
+from rengars_marketplace.models.User import User

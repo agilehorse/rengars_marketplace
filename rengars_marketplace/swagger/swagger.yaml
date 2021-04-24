@@ -12,12 +12,187 @@ tags:
   - name: Applications
     description: An api for manipulation with job applications
 paths:
+  /marketplace/jobApplications:
+    get:
+      tags:
+        - Applications
+      summary: Gets all Job applications.
+      operationId: get_job_applications
+      responses:
+        "200":
+          description: Data successfully obtained.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobApplication'
+                x-content-type: application/json
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+    post:
+      tags:
+        - Applications
+      summary: Creates a job application.
+      operationId: create_job_application
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobApplicationDto'
+        required: true
+      responses:
+        "200":
+          description: Successful creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplication'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer for this application is no longer active.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+  /marketplace/jobApplications/{id}:
+    get:
+      tags:
+        - Applications
+      summary: Gets a job application by its id.
+      operationId: get_job_application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: The job application was obtained successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplication'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The application with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+    put:
+      tags:
+        - Applications
+      summary: Updates an application by its id.
+      operationId: update_job_application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobApplicationDto'
+        required: true
+      responses:
+        "200":
+          description: The job application was updated successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer for this application is no longer active.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
+  /marketplace/jobApplications/{id}/changeState:
+    put:
+      tags:
+        - Applications
+      summary: Changes a state of a job application by its id.
+      operationId: change_job_application_state
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplicationStateDto'
+        required: true
+      responses:
+        "200":
+          description: The job offer was obtained successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The new state of job application is in conflict with the state
+            of job offer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: rengars_marketplace.controllers.applications_controller
   /marketplace/jobOffers:
     get:
       tags:
         - Job offers
       summary: Gets all Job offers.
-      operationId: marketplace_job_offers_get
+      operationId: get_job_offers
       responses:
         "200":
           description: Data successfully obtained.
@@ -34,18 +209,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
     post:
       tags:
         - Job offers
       summary: Creates a Job offer.
-      operationId: marketplace_job_offers_post
+      operationId: create_job_offer
       requestBody:
         content:
           application/json:
@@ -65,19 +234,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
   /marketplace/jobOffers/{id}:
     get:
       tags:
         - Job offers
       summary: Gets a job offer by its id.
-      operationId: marketplace_job_offers_id_get
+      operationId: get_job_offer
       parameters:
         - name: id
           in: path
@@ -107,24 +270,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
         "404":
           description: The job offer with given id not found.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
     put:
       tags:
         - Job offers
       summary: Updates a job offer by its id.
-      operationId: marketplace_job_offers_id_put
+      operationId: update_job_offer
       parameters:
         - name: id
           in: path
@@ -133,7 +290,7 @@ paths:
           explode: false
           schema:
             type: integer
-            format: int64
+            format: int32
       requestBody:
         content:
           application/json:
@@ -145,12 +302,6 @@ paths:
           description: The job offer was updated successfully
         "400":
           description: General error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
           content:
             application/json:
               schema:
@@ -167,212 +318,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.job_offers_controller
-  /marketplace/jobApplications:
-    get:
-      tags:
-        - Applications
-      summary: Gets all Job applications.
-      operationId: marketplace_job_applications_get
-      responses:
-        "200":
-          description: Data successfully obtained.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/JobApplication'
-                x-content-type: application/json
-        "400":
-          description: General error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.applications_controller
-    post:
-      tags:
-        - Applications
-      summary: Creates a job application.
-      operationId: marketplace_job_applications_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateJobApplicationDto'
-        required: true
-      responses:
-        "200":
-          description: Successful creation.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JobApplication'
-        "400":
-          description: General error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "409":
-          description: The job offer for this application is no longer active.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.applications_controller
-  /marketplace/jobApplications/{id}:
-    get:
-      tags:
-        - Applications
-      summary: Gets a job application by its id.
-      operationId: marketplace_job_applications_id_get
-      parameters:
-        - name: id
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
-      responses:
-        "200":
-          description: The job application was obtained successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JobApplication'
-        "400":
-          description: General error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "404":
-          description: The application with given id not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.applications_controller
-    put:
-      tags:
-        - Applications
-      summary: Updates an application by its id.
-      operationId: marketplace_job_applications_id_put
-      parameters:
-        - name: id
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateJobApplicationDto'
-        required: true
-      responses:
-        "200":
-          description: The job application was updated successfully
-        "400":
-          description: General error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "404":
-          description: The job offer with given id not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "409":
-          description: The job offer for this application is no longer active.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.applications_controller
-  /marketplace/jobApplications/{id}/changeState:
-    put:
-      tags:
-        - Applications
-      summary: Changes a state of a job application by its id.
-      operationId: marketplace_job_applications_id_change_state_put
-      parameters:
-        - name: id
-          in: path
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/JobApplicationStateDto'
-        required: true
-      responses:
-        "200":
-          description: The job offer was obtained successfully
-        "400":
-          description: General error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "403":
-          description: The user not authorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "404":
-          description: The job offer with given id not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-        "409":
-          description: The new state of job application is in conflict with the state
-            of job offer.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: swagger_server.controllers.applications_controller
+      x-openapi-router-controller: rengars_marketplace.controllers.job_offers_controller
 components:
   schemas:
     JobOfferState:
@@ -387,15 +333,14 @@ components:
         - description
         - id
         - positionName
-        - posterId
+        - poster
       type: object
       properties:
         id:
           type: integer
           format: int64
-        posterId:
-          type: integer
-          format: int64
+        poster:
+          $ref: '#/components/schemas/User'
         companyName:
           type: string
         positionName:
@@ -416,13 +361,17 @@ components:
             $ref: '#/components/schemas/JobApplication'
       example:
         positionName: FullStack Java React Developer
-        dateArchived: 2018-03-20T09:12:28Z
-        dateCreated: 2019-03-20T09:12:28Z
+        dateArchived: { }
+        dateCreated: { }
         companyName: FitWolfe
         description: We are looking for a fellow developer that can help us build
           the greatest online fitness training app.
         id: 1
-        posterId: 7
+        poster:
+          posterId: 7
+          phoneNumber: +420 608 801 031
+          birthDate: { }
+          email: dmbulko@gmail.com
     CreateJobOfferDto:
       required:
         - companyName
@@ -445,7 +394,7 @@ components:
         companyName: FitWolfe
         description: We are looking for a fellow developer that can help us build
           the greatest online fitness training app.
-        posterId: 4
+        posterId: 7
     UpdateJobOfferDto:
       required:
         - state
@@ -472,7 +421,7 @@ components:
         state: ACTIVE
     JobApplication:
       required:
-        - applicantId
+        - applicant
         - id
         - jobOfferId
         - note
@@ -481,9 +430,8 @@ components:
         id:
           type: integer
           format: int64
-        applicantId:
-          type: integer
-          format: int64
+        applicant:
+          $ref: '#/components/schemas/User'
         note:
           type: string
         jobOfferId:
@@ -499,12 +447,16 @@ components:
       example:
         note: Hello I have 3 years experience. Please give me work or I will starve
           to death.
-        dateCreated: 2018-03-20T09:12:28Z
+        dateCreated: { }
         jobOfferId: 6
         id: 1
         state: NEW
-        dateClosed: 2018-03-20T09:12:28Z
-        applicantId: 5
+        dateClosed: { }
+        applicant:
+          id: 5
+          phoneNumber: +420 420 420 420
+          birthDate: { }
+          email: best.developer@ever.com
     CreateJobApplicationDto:
       required:
         - applicantId
@@ -524,7 +476,7 @@ components:
         note: Hello I have 3 years experience. Please give me work or I will starve
           to death.
         jobOfferId: 6
-        applicantId: 7
+        applicantId: 5
     UpdateJobApplicationDto:
       type: object
       properties:
@@ -533,6 +485,26 @@ components:
       example:
         note: Hello I have 3 years experience. Please give me work or I will starve
           to death.
+    User:
+      required:
+        - birthDate
+        - email
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        phoneNumber:
+          type: string
+      example:
+        phoneNumber: +420 420 420 420
+        birthDate: { }
+        email: best.developer@ever.com
     ErrorDto:
       required:
         - type
@@ -549,22 +521,4 @@ components:
       example:
         message: Job offer with this id is archived - readonly!
         type: errors.joboffers.archived
-  parameters:
-    includeApplications:
-      name: includeApplications
-      in: query
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: boolean
-    id:
-      name: id
-      in: path
-      required: true
-      style: simple
-      explode: false
-      schema:
-        type: integer
-        format: int64
 
