@@ -12,11 +12,10 @@ RUN pip install -r requirements.txt
 RUN pip install gunicorn
 RUN pip install connexion[swagger-ui]
 
-RUN addgroup -g $GROUP_ID www
-RUN adduser -D -u $USER_ID -G www www -s /bin/sh
-
+#RUN addgroup -g $GROUP_ID www
+#RUN adduser -D -u $USER_ID -G www www -s /bin/sh
 USER www
 
 EXPOSE 5000
 
-CMD [ "gunicorn", "-w", "4", "--bind", "0.0.0.0:5000", "main"]
+CMD ["gunicorn", "-w", "4", "--bind", "0.0.0.0:5000", "App"]

@@ -34,7 +34,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: controllers.applications_controller
+      x-openapi-router-controller: controllers.job_applications_controller
     post:
       tags:
         - Applications
@@ -65,7 +65,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: controllers.applications_controller
+      x-openapi-router-controller: controllers.job_applications_controller
   /marketplace/jobApplications/{id}:
     get:
       tags:
@@ -100,7 +100,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: controllers.applications_controller
+      x-openapi-router-controller: controllers.job_applications_controller
     put:
       tags:
         - Applications
@@ -142,7 +142,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: controllers.applications_controller
+      x-openapi-router-controller: controllers.job_applications_controller
   /marketplace/jobApplications/{id}/changeState:
     put:
       tags:
@@ -186,7 +186,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDto'
-      x-openapi-router-controller: controllers.applications_controller
+      x-openapi-router-controller: controllers.job_applications_controller
   /marketplace/jobOffers:
     get:
       tags:

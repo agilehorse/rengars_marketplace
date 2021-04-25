@@ -3,7 +3,7 @@ services:
 
   flask:
     build:
-      context: app
+      context: .
       dockerfile: Dockerfile
     container_name: flask
     image: python:3.9.4-alpine

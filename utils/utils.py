@@ -1,10 +1,10 @@
 import connexion
-from __main__ import db
 from connexion.lifecycle import ConnexionResponse
 from pymongo import ReturnDocument
 
-from app.models.JobApplicationState import JobApplicationState
-from app.models.JobOfferState import JobOfferState
+from App import db
+from models.JobApplicationState import JobApplicationState
+from models.JobOfferState import JobOfferState
 
 
 def get_next_sequence(name):

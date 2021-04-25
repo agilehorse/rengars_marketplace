@@ -1,23 +1,20 @@
 from datetime import datetime
 
 import connexion
-from __main__ import db
+
+from App import db
+from models.CreateJobOfferDto import CreateJobOfferDto
+from models.JobApplicationState import JobApplicationState
 from models.JobOffer import JobOffer  # noqa: E501
 from models.JobOfferState import JobOfferState
-
-from app.models.CreateJobOfferDto import CreateJobOfferDto
-from app.models.JobApplicationState import JobApplicationState
-from app.models.User import User
-from app.utils.utils import get_next_sequence, remap_id, validate_job_offer, get_error_dto
+from models.User import User
+from utils.utils import get_next_sequence, remap_id, validate_job_offer, get_error_dto
 
 
 def create_job_offer():  # noqa: E501
     """Creates a Job offer.
 
      # noqa: E501
-
-    :param dto:
-    :type dto: dict | bytes
 
     :rtype: JobOffer
     """
@@ -69,7 +66,6 @@ def get_job_offers():  # noqa: E501
 
      # noqa: E501
 
-
     :rtype: List[JobOffer]
     """
     try:
@@ -85,8 +81,6 @@ def update_job_offer(id: int):  # noqa: E501
 
      # noqa: E501
 
-    :param dto:
-    :type dto: dict | bytes
     :param id:
     :type id: int
 

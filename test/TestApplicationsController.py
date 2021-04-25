@@ -2,12 +2,12 @@
 
 from __future__ import absolute_import
 
-from test import BaseTestCase
-
 from flask import json
+
 from models.CreateJobApplicationDto import CreateJobApplicationDto  # noqa: E501
 from models.JobApplicationStateDto import JobApplicationStateDto  # noqa: E501
 from models.UpdateJobApplicationDto import UpdateJobApplicationDto  # noqa: E501
+from test import BaseTestCase
 
 
 class TestApplicationsController(BaseTestCase):

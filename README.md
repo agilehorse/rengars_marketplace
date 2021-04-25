@@ -45,8 +45,11 @@ tox
 To run the server on a Docker container, please execute the following from the root directory:
 
 ```bash
-# builds images and rungs them in detached mode
+#removes the volume of flask app
+docker volume rm rengars_marketplace_appdata
 # flask container should be always rebuilt
-docker-compose up -d --build flask
+docker-compose build flask
+# builds images and rungs them in detached mode
+docker-compose up -d
 
 ```

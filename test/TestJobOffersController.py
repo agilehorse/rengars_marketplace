@@ -2,11 +2,11 @@
 
 from __future__ import absolute_import
 
-from test import BaseTestCase
-
 from flask import json
+
 from models.CreateJobOfferDto import CreateJobOfferDto  # noqa: E501
 from models.UpdateJobOfferDto import UpdateJobOfferDto  # noqa: E501
+from ..test import BaseTestCase
 
 
 class TestJobOffersController(BaseTestCase):

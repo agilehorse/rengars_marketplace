@@ -1,13 +1,13 @@
 from datetime import datetime
 
 import connexion
-from __main__ import db
+
+from App import db
+from models.CreateJobApplicationDto import CreateJobApplicationDto
 from models.JobApplication import JobApplication
 from models.JobApplicationState import JobApplicationState  # noqa: E501
-
-from app.models.CreateJobApplicationDto import CreateJobApplicationDto
-from app.models.User import User
-from app.utils.utils import validate_job_application, remap_id, get_next_sequence, get_error_dto
+from models.User import User
+from utils.utils import validate_job_application, remap_id, get_next_sequence, get_error_dto
 
 
 def change_job_application_state(id: int):  # noqa: E501
@@ -15,8 +15,6 @@ def change_job_application_state(id: int):  # noqa: E501
 
      # noqa: E501
 
-    :param dto:
-    :type dto: dict | bytes
     :param id:
     :type id: int
 
@@ -44,9 +42,6 @@ def create_job_application():  # noqa: E501
     """Creates a job application.
 
      # noqa: E501
-
-    :param dto:
-    :type dto: dict | bytes
 
     :rtype: GetJobApplicationDto
     """
@@ -114,8 +109,6 @@ def update_job_application(id: int):  # noqa: E501
 
      # noqa: E501
 
-    :param dto:
-    :type dto: dict | bytes
     :param id:
     :type id: int
 

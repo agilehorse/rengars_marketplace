@@ -4,57 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Add user entity, but only use it in responses of requests.">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/AppMain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/job_applications_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/job_offers_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx/conf.d/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rengars_marketplace.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rengars_marketplace.iml" afterDir="false" />
+    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Refactor and implement everything.">
+      <change afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.swagger-codegen-ignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.swagger-codegen/VERSION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/19359a61ae2446b51b549167b014da2fcf265768" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/0/d0cdeef651e6f731bfff1ea3000d2a508a7985bd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/controllers/applications_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/controllers/job_offers_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/encoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/BaseModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BaseModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/CreateJobApplicationDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/CreateJobApplicationDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/CreateJobOfferDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/CreateJobOfferDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/ErrorDto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/JobApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JobApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/JobApplicationState.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JobApplicationState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/JobApplicationStateDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JobApplicationStateDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/JobOffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JobOffer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/JobOfferState.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JobOfferState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/UpdateJobApplicationDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/UpdateJobApplicationDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/UpdateJobOfferDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/UpdateJobOfferDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/User.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/swagger/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/swagger/swagger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/test/TestApplicationsController.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/test/TestApplicationsController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/test/TestJobOffersController.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/test/TestJobOffersController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/test/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rengars_marketplace/util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/job_applications_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_applications_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/job_offers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_offers_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/BaseModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/BaseModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/CreateJobApplicationDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/CreateJobApplicationDto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/CreateJobOfferDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/CreateJobOfferDto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/JobApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobApplication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/JobApplicationState.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobApplicationState.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/JobApplicationStateDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobApplicationStateDto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/JobOffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobOffer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/JobOfferState.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobOfferState.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/UpdateJobApplicationDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/UpdateJobApplicationDto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/UpdateJobOfferDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/UpdateJobOfferDto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/User.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/swagger/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/test/TestApplicationsController.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestApplicationsController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/test/TestJobOffersController.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestJobOffersController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +95,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/main.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15784115" />
     <property name="project.structure.side.proportion" value="0.31847826" />
@@ -124,11 +103,13 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\school\ing\swa\labs\rengars_marketplace" />
       <recent name="D:\school\ing\swa\labs\rengars_marketplace\app" />
+      <recent name="D:\school\ing\swa\labs\rengars_marketplace\app\app" />
       <recent name="D:\school\ing\swa\labs\rengars_marketplace\app\rengars_marketplace\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.AppMain">
+  <component name="RunManager" selected="Python.__main__">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -139,32 +120,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="AppMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="rengars_marketplace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="MONGODB_USERNAME" value="flaskuser" />
-        <env name="MONGODB_PASSWORD" value="secret" />
-        <env name="MONGODB_HOSTNAME" value="localhost" />
-        <env name="MONGODB_DATABASE" value="flaskdb" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/AppMain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="rengars_marketplace" />
@@ -188,9 +143,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Flask (app/AppMain.py)" type="Python.FlaskServer" nameIsGenerated="true">
+    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="rengars_marketplace" />
-      <option name="target" value="$PROJECT_DIR$/app/AppMain.py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="MONGODB_USERNAME" value="flaskuser" />
+        <env name="MONGODB_PASSWORD" value="secret" />
+        <env name="MONGODB_HOSTNAME" value="localhost" />
+        <env name="MONGODB_DATABASE" value="flaskdb" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/__main__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (__main__.py)" type="Python.FlaskServer" nameIsGenerated="true">
+      <module name="rengars_marketplace" />
+      <option name="target" value="$PROJECT_DIR$/__main__.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -236,14 +217,14 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Flask server.Flask (app/AppMain.py)" />
+      <item itemvalue="Flask server.Flask (__main__.py)" />
       <item itemvalue="Python.__main__" />
-      <item itemvalue="Python.AppMain" />
       <item itemvalue="Swagger Codegen.swagger.yaml" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.AppMain" />
+        <item itemvalue="Python.__main__" />
+        <item itemvalue="Python.__main__" />
       </list>
     </recent_temporary>
   </component>
@@ -262,7 +243,7 @@
       <workItem from="1619287148833" duration="2331000" />
       <workItem from="1619289523553" duration="269000" />
       <workItem from="1619290024541" duration="36296000" />
-      <workItem from="1619371794288" duration="999000" />
+      <workItem from="1619371794288" duration="10693000" />
     </task>
     <task id="LOCAL-00001" summary="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer.">
       <created>1619217914125</created>
@@ -285,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619264959897</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactor and implement everything.">
+      <created>1619373003516</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619373003516</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +294,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer." />
     <MESSAGE value="Add user entity, but only use it in responses of requests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add user entity, but only use it in responses of requests." />
+    <MESSAGE value="Refactor and implement everything." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor and implement everything." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -315,17 +304,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/models/JobOffer.py</url>
+          <url>file://$PROJECT_DIR$/models/JobOffer.py</url>
           <line>70</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/models/User.py</url>
+          <url>file://$PROJECT_DIR$/models/User.py</url>
           <line>50</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/models/User.py</url>
+          <url>file://$PROJECT_DIR$/models/User.py</url>
           <line>51</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
@@ -337,7 +326,8 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____1_.coverage" NAME="__main__ (1) Coverage Results" MODIFIED="1619303219421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$main.coverage" NAME="__main__ Coverage Results" MODIFIED="1619381855824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____1_.coverage" NAME="__main__ Coverage Results" MODIFIED="1619383073010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$__main____2_.coverage" NAME="__main__ (2) Coverage Results" MODIFIED="1619290422199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/rengars_marketplace" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Flask__app_main_py_.coverage" NAME="Flask (app/main.py) Coverage Results" MODIFIED="1619302721918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1619289314910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
