@@ -1,0 +1,538 @@
+openapi: 3.0.1
+info:
+  title: Rengars Marketplace API
+  description: An API for headhunters and job applicants. Headhunters post job offers
+    for which an applicant can post an application.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Job offers
+    description: An api for manipulation with job offers.
+  - name: Applications
+    description: An api for manipulation with job applications
+paths:
+  /marketplace/jobApplications:
+    get:
+      tags:
+        - Applications
+      summary: Gets all Job applications.
+      operationId: get_job_applications
+      responses:
+        "200":
+          description: Data successfully obtained.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobApplication'
+                x-content-type: application/json
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.applications_controller
+    post:
+      tags:
+        - Applications
+      summary: Creates a job application.
+      operationId: create_job_application
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobApplicationDto'
+        required: true
+      responses:
+        "200":
+          description: Successful creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplication'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer for this application is no longer active.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.applications_controller
+  /marketplace/jobApplications/{id}:
+    get:
+      tags:
+        - Applications
+      summary: Gets a job application by its id.
+      operationId: get_job_application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: The job application was obtained successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplication'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The application with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.applications_controller
+    put:
+      tags:
+        - Applications
+      summary: Updates an application by its id.
+      operationId: update_job_application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobApplicationDto'
+        required: true
+      responses:
+        "200":
+          description: The job application was updated successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer for this application is no longer active.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.applications_controller
+  /marketplace/jobApplications/{id}/changeState:
+    put:
+      tags:
+        - Applications
+      summary: Changes a state of a job application by its id.
+      operationId: change_job_application_state
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplicationStateDto'
+        required: true
+      responses:
+        "200":
+          description: The job offer was obtained successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The new state of job application is in conflict with the state
+            of job offer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.applications_controller
+  /marketplace/jobOffers:
+    get:
+      tags:
+        - Job offers
+      summary: Gets all Job offers.
+      operationId: get_job_offers
+      responses:
+        "200":
+          description: Data successfully obtained.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobOffer'
+                x-content-type: application/json
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.job_offers_controller
+    post:
+      tags:
+        - Job offers
+      summary: Creates a Job offer.
+      operationId: create_job_offer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobOfferDto'
+        required: true
+      responses:
+        "200":
+          description: Successful creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOffer'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.job_offers_controller
+  /marketplace/jobOffers/{id}:
+    get:
+      tags:
+        - Job offers
+      summary: Gets a job offer by its id.
+      operationId: get_job_offer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int64
+        - name: includeApplications
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: The job offer was obtained successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOffer'
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.job_offers_controller
+    put:
+      tags:
+        - Job offers
+      summary: Updates a job offer by its id.
+      description: If the new state of the job offer is COMPLETED or WITHDRAWN,
+        all job applications that are linked with this job offer are put into state REJECTED.
+      operationId: update_job_offer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobOfferDto'
+        required: true
+      responses:
+        "200":
+          description: The job offer was updated successfully
+        "400":
+          description: General error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "404":
+          description: The job offer with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+        "409":
+          description: The job offer is archived - readonly.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDto'
+      x-openapi-router-controller: controllers.job_offers_controller
+components:
+  schemas:
+    JobOfferState:
+      type: string
+      enum:
+        - OPEN
+        - COMPLETED
+        - WITHDRAWN
+    JobOffer:
+      required:
+        - companyName
+        - description
+        - id
+        - positionName
+        - poster
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        poster:
+          $ref: '#/components/schemas/User'
+        companyName:
+          type: string
+        positionName:
+          type: string
+        description:
+          type: string
+        state:
+          $ref: '#/components/schemas/JobOfferState'
+        dateCreated:
+          type: string
+          format: date-time
+        dateClosed:
+          type: string
+          format: date-time
+        jobApplications:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobApplication'
+      example:
+        positionName: FullStack Java React Developer
+        dateClosed: "2020-04-25T16:17:58.181000Z"
+        dateCreated: "2021-04-25T16:17:58.181000Z"
+        companyName: FitWolfe
+        description: We are looking for a fellow developer that can help us build
+          the greatest online fitness training
+        id: 1
+        poster:
+          posterId: 7
+          phoneNumber: +420 608 801 031
+          birthDate: "1990-04-25"
+          email: dmbulko@gmail.com
+    CreateJobOfferDto:
+      required:
+        - companyName
+        - description
+        - positionName
+        - posterId
+      type: object
+      properties:
+        posterId:
+          type: integer
+          format: int64
+        companyName:
+          type: string
+        positionName:
+          type: string
+        description:
+          type: string
+      example:
+        positionName: FullStack Java React Developer
+        companyName: FitWolfe
+        description: We are looking for a fellow developer that can help us build
+          the greatest online fitness training
+        posterId: 7
+    UpdateJobOfferDto:
+      required:
+        - state
+      type: object
+      properties:
+        state:
+          $ref: '#/components/schemas/JobOfferState'
+      example:
+        state: COMPLETED
+    JobApplicationState:
+      type: string
+      enum:
+        - NEW
+        - ACTIVE
+        - REJECTED
+        - ACCEPTED
+        - WITHDRAWN
+    JobApplicationStateDto:
+      type: object
+      required:
+        - state
+      properties:
+        state:
+          $ref: '#/components/schemas/JobApplicationState'
+      example:
+        state: ACTIVE
+    JobApplication:
+      required:
+        - applicant
+        - id
+        - jobOfferId
+        - note
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        applicant:
+          $ref: '#/components/schemas/User'
+        note:
+          type: string
+        jobOfferId:
+          type: integer
+        state:
+          $ref: '#/components/schemas/JobApplicationState'
+        dateCreated:
+          type: string
+          format: date-time
+        dateClosed:
+          type: string
+          format: date-time
+      example:
+        note: Hello I have 3 years experience. Please give me work or I will starve
+          to death.
+        dateCreated: "2020-04-25T16:17:58.181000Z"
+        jobOfferId: 6
+        id: 1
+        state: NEW
+        dateClosed: "2021-04-25T16:17:58.181000Z"
+        applicant:
+          id: 5
+          phoneNumber: +420 420 420 420
+          birthDate: "2000-04-25"
+          email: best.developer@ever.com
+    CreateJobApplicationDto:
+      required:
+        - applicantId
+        - jobOfferId
+        - note
+      type: object
+      properties:
+        applicantId:
+          type: integer
+          format: int64
+        note:
+          type: string
+        jobOfferId:
+          type: integer
+          format: int64
+      example:
+        note: Hello I have 3 years experience. Please give me work or I will starve
+          to death.
+        jobOfferId: 6
+        applicantId: 5
+    UpdateJobApplicationDto:
+      type: object
+      required:
+        - note
+      properties:
+        note:
+          type: string
+      example:
+        note: Hello I have 3 years experience. Please give me work or I will starve
+          to death.
+    User:
+      required:
+        - birthDate
+        - email
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        phoneNumber:
+          type: string
+      example:
+        phoneNumber: +420 420 420 420
+        birthDate: { }
+        email: best.developer@ever.com
+    ErrorDto:
+      required:
+        - type
+      type: object
+      properties:
+        detail:
+          type: string
+          description: A human readable explanation specific to this occurrence of the problem.
+        status:
+          type: integer
+          description: The HTTP status code generated by the origin server for this occurrence of the problem.
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type.
+        type:
+          type: string
+          description: An absolute URI that identifies the problem type. When dereferenced, it SHOULD provide
+            human-readable documentation for the problem type (e.g., using HTML). When this member is not
+            present its value is assumed to be "about:blank".
+      description: DTO containing additional data about an error that occurred when calling the api.
+      example:
+        detail: Job offer with this id is archived - readonly!
+        status: 409
+        title: Conflict
+        type: errors.joboffers.archived

@@ -17,8 +17,8 @@ Python 3.5.2+
 To run the server, please execute the following from the root directory:
 
 ```
-pip3 install -r requirements.txt
-python3 -m swagger_server
+pip3 install -r app/requirements.txt
+python3 -m app
 ```
 
 and open your browser to here:
@@ -45,9 +45,8 @@ tox
 To run the server on a Docker container, please execute the following from the root directory:
 
 ```bash
-# building the image
-docker build -t rengars_marketplace .
+# builds images and rungs them in detached mode
+# flask container should be always rebuilt
+docker-compose up -d --build flask
 
-# starting up a container
-docker run -p 8080:8080 rengars_marketplace
 ```
