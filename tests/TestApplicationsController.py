@@ -5,20 +5,20 @@ from __future__ import absolute_import
 from flask import json
 
 from models.CreateJobApplicationDto import CreateJobApplicationDto  # noqa: E501
-from models.JobApplicationStateDto import JobApplicationStateDto  # noqa: E501
+from models.JobApplicationState import JobApplicationState
 from models.UpdateJobApplicationDto import UpdateJobApplicationDto  # noqa: E501
-from test import BaseTestCase
+from tests import BaseTestCase
 
 
 class TestApplicationsController(BaseTestCase):
-    """ApplicationsController integration test stubs"""
+    """ApplicationsController integration tests stubs"""
 
     def test_change_job_application_state(self):
         """Test case for change_job_application_state
 
         Changes a state of a job application by its id.
         """
-        body = JobApplicationStateDto()
+        body = {'state': JobApplicationState.NEW}
         response = self.client.open(
             '/marketplace/jobApplications/{id}/changeState'.format(id=56),
             method='PUT',

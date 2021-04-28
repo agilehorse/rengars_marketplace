@@ -6,11 +6,11 @@ from flask import json
 
 from models.CreateJobOfferDto import CreateJobOfferDto  # noqa: E501
 from models.UpdateJobOfferDto import UpdateJobOfferDto  # noqa: E501
-from ..test import BaseTestCase
+from ..tests import BaseTestCase
 
 
 class TestJobOffersController(BaseTestCase):
-    """JobOffersController integration test stubs"""
+    """JobOffersController integration tests stubs"""
 
     def test_create_job_offer(self):
         """Test case for create_job_offer

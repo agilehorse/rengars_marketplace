@@ -3,8 +3,6 @@ from connexion.lifecycle import ConnexionResponse
 from pymongo import ReturnDocument
 
 from App import db
-from models.JobApplicationState import JobApplicationState
-from models.JobOfferState import JobOfferState
 
 
 def get_next_sequence(name):
@@ -15,28 +13,6 @@ def get_next_sequence(name):
         upsert=True,
         return_document=ReturnDocument.AFTER
     ).get('seq')
-
-
-def validate_job_application(job_application: dict):
-    if job_application is None:
-        return get_error_dto("errors.job_applications.not_found", 404)
-    state = job_application['state']
-    if JobApplicationState.is_readonly(state):
-        return get_error_dto("errors.job_applications.read_only", 409, state)
-    return None
-
-
-def validate_job_offer(job_offer: dict, new_state=None):
-    if job_offer is None:
-        return get_error_dto("errors.job_offers.not_found", 404)
-    state = job_offer['state']
-    if JobOfferState.is_readonly(state):
-        return get_error_dto("errors.job_offers.read_only", 409, state)
-    if new_state == JobOfferState.WITHDRAWN:
-        accepted = list(db.job_applications.find({"jobOfferId": id, "state": JobApplicationState.ACCEPTED}))
-        if len(accepted) > 0:
-            return get_error_dto("errors.job_offers.withdrawing_accepted")
-    return None
 
 
 def remap_id(json: dict) -> dict:

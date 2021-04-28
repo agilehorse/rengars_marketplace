@@ -4,36 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Refactor and implement everything.">
-      <change afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
+    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Solve docker issues.">
+      <change afterPath="$PROJECT_DIR$/models/RestException.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/JobApplicationService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/JobOfferService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/job_applications_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_applications_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/job_offers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_offers_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/BaseModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/BaseModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/CreateJobApplicationDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/CreateJobApplicationDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/CreateJobOfferDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/CreateJobOfferDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JobApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JobApplicationState.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobApplicationState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JobApplicationStateDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobApplicationStateDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JobOffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobOffer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JobOfferState.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/JobOfferState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/UpdateJobApplicationDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/UpdateJobApplicationDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/UpdateJobOfferDto.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/UpdateJobOfferDto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/User.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/swagger/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/swagger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/test/TestApplicationsController.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestApplicationsController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/test/TestJobOffersController.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestJobOffersController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/job_applications_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_applications_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/job_offers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_offers_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/JobApplicationStateDto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestApplicationsController.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestApplicationsController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestJobOffersController.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestJobOffersController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +79,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15784115" />
     <property name="project.structure.side.proportion" value="0.31847826" />
@@ -121,20 +105,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="rengars_marketplace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="MONGODB_DATABASE" value="flaskdb" />
+        <env name="MONGODB_USERNAME" value="flaskuser" />
+        <env name="MONGODB_PASSWORD" value="secret" />
+        <env name="MONGODB_HOSTNAME" value="mongodb" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\school\ing\swa\labs\rengars_marketplace\app\__main__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/__main__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -216,14 +204,49 @@
       <option name="specificationPath" value="D:\school\ing\swa\labs\rengars_marketplace\rengars_marketplace\swagger\swagger.yaml" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for TestApplicationsController.TestApplicationsController" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="rengars_marketplace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;TestApplicationsController.TestApplicationsController&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in TestApplicationsController.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="rengars_marketplace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/TestApplicationsController.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Flask server.Flask (__main__.py)" />
       <item itemvalue="Python.__main__" />
+      <item itemvalue="Python tests.Unittests for TestApplicationsController.TestApplicationsController" />
+      <item itemvalue="Python tests.Unittests in TestApplicationsController.py" />
       <item itemvalue="Swagger Codegen.swagger.yaml" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.__main__" />
+        <item itemvalue="Python.__main__" />
+        <item itemvalue="Python tests.Unittests in TestApplicationsController.py" />
+        <item itemvalue="Python tests.Unittests for TestApplicationsController.TestApplicationsController" />
         <item itemvalue="Python.__main__" />
       </list>
     </recent_temporary>
@@ -243,7 +266,8 @@
       <workItem from="1619287148833" duration="2331000" />
       <workItem from="1619289523553" duration="269000" />
       <workItem from="1619290024541" duration="36296000" />
-      <workItem from="1619371794288" duration="10693000" />
+      <workItem from="1619371794288" duration="12792000" />
+      <workItem from="1619560224416" duration="7535000" />
     </task>
     <task id="LOCAL-00001" summary="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer.">
       <created>1619217914125</created>
@@ -273,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619373003516</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Solve docker issues.">
+      <created>1619383344878</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619383344878</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +326,8 @@
     <MESSAGE value="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer." />
     <MESSAGE value="Add user entity, but only use it in responses of requests." />
     <MESSAGE value="Refactor and implement everything." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor and implement everything." />
+    <MESSAGE value="Solve docker issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="Solve docker issues." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -326,11 +358,13 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_TestApplicationsController_py.coverage" NAME="Unittests in TestApplicationsController.py Coverage Results" MODIFIED="1619609658109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$main.coverage" NAME="__main__ Coverage Results" MODIFIED="1619381855824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____1_.coverage" NAME="__main__ Coverage Results" MODIFIED="1619383073010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____1_.coverage" NAME="__main__ Coverage Results" MODIFIED="1619613356038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$__main____2_.coverage" NAME="__main__ (2) Coverage Results" MODIFIED="1619290422199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/rengars_marketplace" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Flask__app_main_py_.coverage" NAME="Flask (app/main.py) Coverage Results" MODIFIED="1619302721918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1619289314910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$app.coverage" NAME="AppMain Coverage Results" MODIFIED="1619365887164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_TestApplicationsController_TestApplicationsController.coverage" NAME="Unittests for TestApplicationsController.TestApplicationsController Coverage Results" MODIFIED="1619609631943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>
