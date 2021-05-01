@@ -38,4 +38,4 @@ jobs:
         run: |
           pip freeze > ./test-requirements.txt
           pip install -r ./test-requirements.txt
-          python -m unittest discover apptest
+          python -m unittest discover -s apptest
