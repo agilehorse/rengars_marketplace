@@ -36,5 +36,6 @@ jobs:
         env:
           TESTING: true
         run: |
+          pip freeze > ./test-requirements.txt
           pip install -r ./test-requirements.txt
           python -m unittest discover test
