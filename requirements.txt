@@ -5,3 +5,5 @@ setuptools >= 21.0.0
 Flask~=1.1.2
 six~=1.15.0
 flask_pymongo>=2.3.0
+pymongo~=3.11.3
+mongomock~=3.22.1

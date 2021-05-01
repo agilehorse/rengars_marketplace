@@ -2,11 +2,11 @@ import connexion
 from connexion.lifecycle import ConnexionResponse
 from pymongo import ReturnDocument
 
-from App import db
+from App import application
 
 
-def get_next_sequence(name):
-    return db.counters.find_one_and_update(
+def get_next_id(name):
+    return application.db.counters.find_one_and_update(
         {'_id': name},
         {'$inc': {'seq': 1}},
         projection={'seq': True, '_id': False},

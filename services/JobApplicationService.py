@@ -1,18 +1,18 @@
 from datetime import datetime
 
-from App import db
+from App import application
 from models.CreateJobApplicationDto import CreateJobApplicationDto
 from models.JobApplication import JobApplication
 from models.JobApplicationState import JobApplicationState
 from models.RestException import RestException
 from models.User import User
-from utils.utils import get_next_sequence, remap_id
+from utils.utils import get_next_id, remap_id
 
 
 class JobApplicationService:
     @staticmethod
     def find_job_application(query: dict) -> dict:
-        job_application = db.job_applications.find_one(query)
+        job_application = application.db.job_applications.find_one(query)
 
         if job_application is None:
             raise RestException("errors.job_applications.not_found", 404)
@@ -26,12 +26,12 @@ class JobApplicationService:
         if JobApplicationState.is_readonly(current_state):
             raise RestException("errors.job_applications.read_only", 409, str(current_state))
 
-        db.job_applications.update_one(query, {'$set': update_object})
+        application.db.job_applications.update_one(query, {'$set': update_object})
         # todo send event to other microservices
 
     @staticmethod
     def create_job_application(dto: CreateJobApplicationDto) -> dict:
-        offer = db.job_offers.find_one({'_id': dto.job_offer_id})
+        offer = application.db.job_offers.find_one({'_id': dto.job_offer_id})
         if offer is None:
             raise RestException("errors.job_offers.not_found", 404)
 
@@ -43,8 +43,8 @@ class JobApplicationService:
         job_application.applicant = fake_applicant
 
         json = job_application.to_dict()
-        json['_id'] = get_next_sequence("applicationId")
-        db.job_applications.insert_one(json)
+        json['_id'] = get_next_id("applicationId")
+        application.db.job_applications.insert_one(json)
         # todo send event to other microservices
         return remap_id(json)
 
@@ -52,6 +52,6 @@ class JobApplicationService:
     def find_job_applications(query=None):
         if query is None:
             query = {}
-        job_applications = list(db.job_applications.find(query))
+        job_applications = list(application.db.job_applications.find(query))
         # we need to remap mongodb '_id' to 'id'
         return list(map(remap_id, job_applications))

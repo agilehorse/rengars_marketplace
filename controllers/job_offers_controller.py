@@ -1,12 +1,11 @@
 import connexion
 
-from App import db
 from models.CreateJobOfferDto import CreateJobOfferDto
 from models.JobOffer import JobOffer  # noqa: E501
 from models.RestException import RestException
 from services.JobApplicationService import JobApplicationService
 from services.JobOfferService import JobOfferService
-from utils.utils import remap_id, get_error_dto
+from utils.utils import get_error_dto
 
 
 def create_job_offer():  # noqa: E501
@@ -19,7 +18,7 @@ def create_job_offer():  # noqa: E501
     dto = CreateJobOfferDto.from_dict(connexion.request.json)
     try:
         json = JobOfferService.create_job_offer(dto)
-        return remap_id(json), 200
+        return json, 200
     except RestException as re:
         print(re)
         return get_error_dto(re.error_type, re.status_code, re.info)
@@ -64,7 +63,7 @@ def get_job_offers():  # noqa: E501
     :rtype: List[JobOffer]
     """
     try:
-        job_offers = list(map(remap_id, list(db.job_offers.find())))
+        job_offers = JobOfferService.find_job_offers()
         return job_offers, 200
     except Exception as e:
         print(e)

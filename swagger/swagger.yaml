@@ -370,7 +370,7 @@ components:
           the greatest online fitness training
         id: 1
         poster:
-          posterId: 7
+          id: 7
           phoneNumber: +420 608 801 031
           birthDate: "1990-04-25"
           email: dmbulko@gmail.com
