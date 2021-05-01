@@ -6,7 +6,7 @@ from mongomock.mongo_client import MongoClient as PyMongoMock
 
 application = connexion.App(__name__, specification_dir='swagger/')
 flask_app = application.app
-if environ.get("test") == "true":
+if environ.get("TESTING") == "true":
     flask_app.config['TESTING'] = True
     application.db = PyMongoMock().db
 else:

@@ -1,10 +1,10 @@
 from App import application
+from apptest import BaseTestCase
 from models.CreateJobOfferDto import CreateJobOfferDto
 from models.JobOfferState import JobOfferState
 from models.RestException import RestException
 from services.JobOfferService import JobOfferService
 from services.TestDataGenerator import TestDataGenerator
-from test import BaseTestCase
 from utils.utils import get_next_id
 
 

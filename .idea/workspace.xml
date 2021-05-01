@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Move unit tests.">
+    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Install test requirements.">
       <change afterPath="$PROJECT_DIR$/tox.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apptest/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_JobApplicationService.py" beforeDir="false" afterPath="$PROJECT_DIR$/apptest/test_JobApplicationService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_JobApplicationsController.py" beforeDir="false" afterPath="$PROJECT_DIR$/apptest/test_JobApplicationsController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_JobOfferService.py" beforeDir="false" afterPath="$PROJECT_DIR$/apptest/test_JobOfferService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_JobOffersController.py" beforeDir="false" afterPath="$PROJECT_DIR$/apptest/test_JobOffersController.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +45,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -87,7 +95,7 @@
       <recent name="D:\school\ing\swa\labs\rengars_marketplace\app\rengars_marketplace\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in testing">
+  <component name="RunManager" selected="Flask server.Flask (__main__.py)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -198,7 +206,7 @@
       <option name="specificationPath" value="D:\school\ing\swa\labs\rengars_marketplace\rengars_marketplace\swagger\swagger.yaml" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test.test_JobApplicationService.JobApplicationServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for apptest.test_JobApplicationService.JobApplicationServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="rengars_marketplace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -206,18 +214,18 @@
         <env name="TESTING" value="true" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apptest" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.test_JobApplicationService.JobApplicationServiceTest&quot;" />
+      <option name="_new_target" value="&quot;apptest.test_JobApplicationService.JobApplicationServiceTest&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test.test_JobOfferService.JobOfferServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for apptest.test_JobOfferService.JobOfferServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="rengars_marketplace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -225,18 +233,18 @@
         <env name="TESTING" value="true" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apptest" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.test_JobOfferService.JobOfferServiceTest&quot;" />
+      <option name="_new_target" value="&quot;apptest.test_JobOfferService.JobOfferServiceTest&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in apptest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="rengars_marketplace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -244,30 +252,29 @@
         <env name="TESTING" value="true" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apptest" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/apptest&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Flask server.Flask (__main__.py)" />
       <item itemvalue="Python.__main__" />
-      <item itemvalue="Python tests.Unittests in testing" />
       <item itemvalue="Swagger Codegen.swagger.yaml" />
-      <item itemvalue="Python tests.Unittests for test.test_JobApplicationService.JobApplicationServiceTest" />
-      <item itemvalue="Python tests.Unittests for test.test_JobOfferService.JobOfferServiceTest" />
+      <item itemvalue="Python tests.Unittests in apptest" />
+      <item itemvalue="Python tests.Unittests for apptest.test_JobApplicationService.JobApplicationServiceTest" />
+      <item itemvalue="Python tests.Unittests for apptest.test_JobOfferService.JobOfferServiceTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in testing" />
-        <item itemvalue="Python tests.Unittests for test.test_JobOfferService.JobOfferServiceTest" />
-        <item itemvalue="Python tests.Unittests for test.test_JobApplicationService.JobApplicationServiceTest" />
+        <item itemvalue="Python tests.Unittests for apptest.test_JobOfferService.JobOfferServiceTest" />
+        <item itemvalue="Python tests.Unittests for apptest.test_JobApplicationService.JobApplicationServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -288,7 +295,7 @@
       <workItem from="1619290024541" duration="36296000" />
       <workItem from="1619371794288" duration="12792000" />
       <workItem from="1619560224416" duration="15907000" />
-      <workItem from="1619801450007" duration="32082000" />
+      <workItem from="1619801450007" duration="32608000" />
     </task>
     <task id="LOCAL-00001" summary="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer.">
       <created>1619217914125</created>
@@ -381,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619879175081</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Install test requirements.">
+      <created>1619879978454</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1619879978454</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +425,8 @@
     <MESSAGE value="Add build cache." />
     <MESSAGE value="Fix unit tests." />
     <MESSAGE value="Move unit tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Move unit tests." />
+    <MESSAGE value="Install test requirements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Install test requirements." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -435,12 +450,12 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_JobOffersController.py</url>
+          <url>file://$PROJECT_DIR$/apptest/test_JobOffersController.py</url>
           <line>81</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_JobOfferService.py</url>
+          <url>file://$PROJECT_DIR$/apptest/test_JobOfferService.py</url>
           <line>33</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>

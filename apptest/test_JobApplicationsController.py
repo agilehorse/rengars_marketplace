@@ -3,9 +3,9 @@ import json
 from unittest.mock import patch
 
 from App import application
+from apptest import BaseTestCase
 from models.JobApplicationState import JobApplicationState
 from services.TestDataGenerator import TestDataGenerator
-from test import BaseTestCase
 from utils.utils import get_next_id
 
 
