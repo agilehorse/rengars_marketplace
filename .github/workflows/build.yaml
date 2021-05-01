@@ -35,5 +35,4 @@ jobs:
       - name: Run unit tests
         env:
           TESTING: true
-        run: |
-          python -m unittest
+        uses: onichandame/python-test-action@master
