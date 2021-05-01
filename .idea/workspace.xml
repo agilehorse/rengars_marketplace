@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Set up tests.">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -287,7 +288,7 @@
       <workItem from="1619290024541" duration="36296000" />
       <workItem from="1619371794288" duration="12792000" />
       <workItem from="1619560224416" duration="15907000" />
-      <workItem from="1619801450007" duration="24088000" />
+      <workItem from="1619801450007" duration="26749000" />
     </task>
     <task id="LOCAL-00001" summary="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer.">
       <created>1619217914125</created>
@@ -345,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619871121767</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Set up tests.">
+      <created>1619871233242</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619871233242</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
