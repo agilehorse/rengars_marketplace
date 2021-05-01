@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Set yaml build file and adjust environment variables.">
+    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Add build cache.">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/test_JobApplicationService.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/test_JobApplicationService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/test_JobApplicationsController.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/test_JobApplicationsController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/test_JobOfferService.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/test_JobOfferService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/test_JobOffersController.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/test_JobOffersController.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +91,7 @@
       <recent name="D:\school\ing\swa\labs\rengars_marketplace\app\rengars_marketplace\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.__main__">
+  <component name="RunManager" selected="Python tests.Unittests in testing">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -264,9 +269,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in testing" />
         <item itemvalue="Python tests.Unittests for test_JobOfferService.JobOfferServiceTest" />
         <item itemvalue="Python tests.Unittests for test_JobApplicationService.JobApplicationServiceTest" />
-        <item itemvalue="Python tests.Unittests in testing" />
       </list>
     </recent_temporary>
   </component>
@@ -287,7 +292,7 @@
       <workItem from="1619290024541" duration="36296000" />
       <workItem from="1619371794288" duration="12792000" />
       <workItem from="1619560224416" duration="15907000" />
-      <workItem from="1619801450007" duration="27206000" />
+      <workItem from="1619801450007" duration="30999000" />
     </task>
     <task id="LOCAL-00001" summary="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer.">
       <created>1619217914125</created>
@@ -359,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619874748890</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add build cache.">
+      <created>1619875169257</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1619875169257</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +398,8 @@
     <MESSAGE value="Refactoring." />
     <MESSAGE value="Set up tests." />
     <MESSAGE value="Set yaml build file and adjust environment variables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Set yaml build file and adjust environment variables." />
+    <MESSAGE value="Add build cache." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add build cache." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -410,44 +423,19 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/testing/test_JobOffersController.py</url>
           <line>81</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/controllers/job_offers_controller.py</url>
-          <line>84</line>
-          <option name="timeStamp" value="62" />
+          <url>file://$PROJECT_DIR$/testing/test_JobOfferService.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/services/JobOfferService.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/testing/test_JobApplicationService.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="65" />
+          <line>47</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -464,7 +452,7 @@
     <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_MyTest.coverage" NAME="Unittests for test.MyTest Coverage Results" MODIFIED="1619649470394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kokot" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_job_offers_controller_TestJobOffersController.coverage" NAME="Unittests for testing.test_job_offers_controller.TestJobOffersController Coverage Results" MODIFIED="1619808865641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobApplicationsControllerTest_TestJobApplicationsController_test_create_job_application.coverage" NAME="Unittests for JobApplicationsControllerTest.TestJobApplicationsController.test_create_job_application Coverage Results" MODIFIED="1619854172830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_testing.coverage" NAME="Unittests in testing Coverage Results" MODIFIED="1619864604228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_testing.coverage" NAME="Unittests in testing Coverage Results" MODIFIED="1619878099821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_TestApplicationsController_TestApplicationsController.coverage" NAME="Unittests for TestApplicationsController.TestApplicationsController Coverage Results" MODIFIED="1619609631943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_test_py.coverage" NAME="Unittests in test.py Coverage Results" MODIFIED="1619649458327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kokot" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_TestApplicationsController_py.coverage" NAME="Unittests in test_job_applications_controller.py Coverage Results" MODIFIED="1619647577803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/local_tests" />

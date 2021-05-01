@@ -85,6 +85,9 @@ class TestJobApplicationsController(BaseTestCase):
             method='GET').data.decode('utf-8'))
         self.assertEqual(response_body['note'], body['note'])
 
+    def setUp(self) -> None:
+        application.db.job_applications.delete_many({})
+
 
 if __name__ == '__main__':
     import unittest

@@ -80,6 +80,9 @@ class TestJobOffersController(BaseTestCase):
 
         self.assertEqual(body["state"], response_object["state"])
 
+    def setUp(self) -> None:
+        application.db.job_offers.delete_many({})
+
 
 if __name__ == '__main__':
     import unittest

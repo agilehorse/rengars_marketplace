@@ -41,6 +41,9 @@ class JobApplicationServiceTest(BaseTestCase):
         self.assertEqual(expected.applicant_id, actual['applicant']['id'])
         self.assertEqual(expected.note, actual['note'])
 
+    def setUp(self) -> None:
+        application.db.job_applications.delete_many({})
+
 
 if __name__ == '__main__':
     import unittest
