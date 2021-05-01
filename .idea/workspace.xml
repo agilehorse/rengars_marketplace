@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Solve docker issues.">
-      <change afterPath="$PROJECT_DIR$/models/RestException.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/JobApplicationService.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/JobOfferService.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Set up tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/job_applications_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_applications_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/job_offers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/job_offers_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/JobApplicationStateDto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestApplicationsController.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestApplicationsController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestJobOffersController.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestJobOffersController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +31,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -79,7 +72,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/__main__.py" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15784115" />
     <property name="project.structure.side.proportion" value="0.31847826" />
@@ -93,7 +86,7 @@
       <recent name="D:\school\ing\swa\labs\rengars_marketplace\app\rengars_marketplace\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.__main__">
+  <component name="RunManager" selected="Python tests.Unittests for test_JobOfferService.JobOfferServiceTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -105,16 +98,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="rengars_marketplace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="MONGODB_DATABASE" value="flaskdb" />
         <env name="MONGODB_USERNAME" value="flaskuser" />
+        <env name="MONGODB_HOSTNAME" value="localhost" />
+        <env name="MONGODB_DATABASE" value="flaskdb" />
         <env name="MONGODB_PASSWORD" value="secret" />
-        <env name="MONGODB_HOSTNAME" value="mongodb" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -122,7 +115,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/__main__.py" />
+      <option name="SCRIPT_NAME" value="D:\school\ing\swa\labs\rengars_marketplace\__main__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -204,50 +197,76 @@
       <option name="specificationPath" value="D:\school\ing\swa\labs\rengars_marketplace\rengars_marketplace\swagger\swagger.yaml" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for TestApplicationsController.TestApplicationsController" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test_JobApplicationService.JobApplicationServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="rengars_marketplace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="TESTING" value="true" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestApplicationsController.TestApplicationsController&quot;" />
+      <option name="_new_target" value="&quot;test_JobApplicationService.JobApplicationServiceTest&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in TestApplicationsController.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test_JobOfferService.JobOfferServiceTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="rengars_marketplace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="TESTING" value="true" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/TestApplicationsController.py&quot;" />
+      <option name="_new_target" value="&quot;test_JobOfferService.JobOfferServiceTest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in testing" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="rengars_marketplace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="TESTING" value="true" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_pattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/testing&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Flask server.Flask (__main__.py)" />
       <item itemvalue="Python.__main__" />
-      <item itemvalue="Python tests.Unittests for TestApplicationsController.TestApplicationsController" />
-      <item itemvalue="Python tests.Unittests in TestApplicationsController.py" />
+      <item itemvalue="Python tests.Unittests in testing" />
+      <item itemvalue="Python tests.Unittests for test_JobApplicationService.JobApplicationServiceTest" />
+      <item itemvalue="Python tests.Unittests for test_JobOfferService.JobOfferServiceTest" />
       <item itemvalue="Swagger Codegen.swagger.yaml" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.__main__" />
-        <item itemvalue="Python.__main__" />
-        <item itemvalue="Python tests.Unittests in TestApplicationsController.py" />
-        <item itemvalue="Python tests.Unittests for TestApplicationsController.TestApplicationsController" />
-        <item itemvalue="Python.__main__" />
+        <item itemvalue="Python tests.Unittests for test_JobOfferService.JobOfferServiceTest" />
+        <item itemvalue="Python tests.Unittests for test_JobApplicationService.JobApplicationServiceTest" />
+        <item itemvalue="Python tests.Unittests in testing" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +286,8 @@
       <workItem from="1619289523553" duration="269000" />
       <workItem from="1619290024541" duration="36296000" />
       <workItem from="1619371794288" duration="12792000" />
-      <workItem from="1619560224416" duration="7535000" />
+      <workItem from="1619560224416" duration="15907000" />
+      <workItem from="1619801450007" duration="24088000" />
     </task>
     <task id="LOCAL-00001" summary="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer.">
       <created>1619217914125</created>
@@ -304,7 +324,28 @@
       <option name="project" value="LOCAL" />
       <updated>1619383344878</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Create service layer.">
+      <created>1619614131958</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619614131958</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refactoring.">
+      <created>1619871108273</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619871108273</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Set up tests.">
+      <created>1619871121767</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619871121767</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +368,10 @@
     <MESSAGE value="Add user entity, but only use it in responses of requests." />
     <MESSAGE value="Refactor and implement everything." />
     <MESSAGE value="Solve docker issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="Solve docker issues." />
+    <MESSAGE value="Create service layer." />
+    <MESSAGE value="Refactoring." />
+    <MESSAGE value="Set up tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up tests." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -350,6 +394,46 @@
           <line>51</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/job_applications_controller.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/testing/test_JobOffersController.py</url>
+          <line>81</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controllers/job_offers_controller.py</url>
+          <line>84</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/services/JobOfferService.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/testing/test_JobApplicationService.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -358,13 +442,34 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_TestApplicationsController_py.coverage" NAME="Unittests in TestApplicationsController.py Coverage Results" MODIFIED="1619609658109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$main.coverage" NAME="__main__ Coverage Results" MODIFIED="1619381855824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____1_.coverage" NAME="__main__ Coverage Results" MODIFIED="1619613356038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____2_.coverage" NAME="__main__ (2) Coverage Results" MODIFIED="1619290422199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/rengars_marketplace" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$Flask__app_main_py_.coverage" NAME="Flask (app/main.py) Coverage Results" MODIFIED="1619302721918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1619289314910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
-    <SUITE FILE_PATH="coverage/rengars_marketplace$app.coverage" NAME="AppMain Coverage Results" MODIFIED="1619365887164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_job_applications_controller_TestJobApplicationsController.coverage" NAME="Unittests for test_job_applications_controller.TestJobApplicationsController Coverage Results" MODIFIED="1619651898616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kokot" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobApplicationsControllerTest_TestJobApplicationsController.coverage" NAME="Unittests for JobApplicationsControllerTest.TestJobApplicationsController Coverage Results" MODIFIED="1619817388335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobApplicationsControllerTest_TestJobApplicationsController_test_get_job_application.coverage" NAME="Unittests for JobApplicationsControllerTest.TestJobApplicationsController.test_get_job_application Coverage Results" MODIFIED="1619852289427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobOffersControllerTest_TestJobOffersController.coverage" NAME="Unittests for JobOffersControllerTest.TestJobOffersController Coverage Results" MODIFIED="1619864074761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_MyTest.coverage" NAME="Unittests for test.MyTest Coverage Results" MODIFIED="1619649470394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kokot" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_job_offers_controller_TestJobOffersController.coverage" NAME="Unittests for testing.test_job_offers_controller.TestJobOffersController Coverage Results" MODIFIED="1619808865641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobApplicationsControllerTest_TestJobApplicationsController_test_create_job_application.coverage" NAME="Unittests for JobApplicationsControllerTest.TestJobApplicationsController.test_create_job_application Coverage Results" MODIFIED="1619854172830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_testing.coverage" NAME="Unittests in testing Coverage Results" MODIFIED="1619864604228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
     <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_TestApplicationsController_TestApplicationsController.coverage" NAME="Unittests for TestApplicationsController.TestApplicationsController Coverage Results" MODIFIED="1619609631943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_test_py.coverage" NAME="Unittests in test.py Coverage Results" MODIFIED="1619649458327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kokot" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_TestApplicationsController_py.coverage" NAME="Unittests in test_job_applications_controller.py Coverage Results" MODIFIED="1619647577803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/local_tests" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____1_.coverage" NAME="__main__ Coverage Results" MODIFIED="1619644604479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1619816659085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Flask__app_main_py_.coverage" NAME="Flask (app/main.py) Coverage Results" MODIFIED="1619302721918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_JobApplicationsControllerTest_py.coverage" NAME="Unittests in JobApplicationsControllerTest.py Coverage Results" MODIFIED="1619855507365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobApplicationsControllerTest_TestJobApplicationsController_test_2.coverage" NAME="Unittests for JobApplicationsControllerTest.TestJobApplicationsController.test_2 Coverage Results" MODIFIED="1619812189111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobApplicationsControllerTest_TestJobApplicationsController_test_change_job_application_state.coverage" NAME="Unittests for JobApplicationsControllerTest.TestJobApplicationsController.test_change_job_application_state Coverage Results" MODIFIED="1619853790176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$main.coverage" NAME="__main__ Coverage Results" MODIFIED="1619381855824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_JobOfferService_JobOfferServiceTest.coverage" NAME="Unittests for test_JobOfferService.JobOfferServiceTest Coverage Results" MODIFIED="1619870047078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1619289314910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_tests_test_job_offers_controller_TestJobOffersController.coverage" NAME="Unittests for t.test_job_offers_controller.TestJobOffersController Coverage Results" MODIFIED="1619648646661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$app.coverage" NAME="AppMain Coverage Results" MODIFIED="1619365887164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_in_test_job_applications_controller_py.coverage" NAME="Unittests in test_job_applications_controller.py Coverage Results" MODIFIED="1619652353291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kokot" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$test.coverage" NAME="__main__ Coverage Results" MODIFIED="1619652323407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_TestApplicationsController_TestApplicationsController_test_get_job_application.coverage" NAME="Unittests for TestApplicationsController.TestApplicationsController.test_get_job_application Coverage Results" MODIFIED="1619638383138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$__main____2_.coverage" NAME="__main__ (2) Coverage Results" MODIFIED="1619290422199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/rengars_marketplace" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_job_applications_controller_TestJobApplicationsController_test_change_job_application_state.coverage" NAME="Unittests for test_job_applications_controller.TestJobApplicationsController.test_change_job_application_state Coverage Results" MODIFIED="1619648830553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/kokot" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_JobOffersControllerTest_TestJobOffersController_test_create_job_offer.coverage" NAME="Unittests for JobOffersControllerTest.TestJobOffersController.test_create_job_offer Coverage Results" MODIFIED="1619857913347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/rengars_marketplace$Unittests_for_test_JobApplicationService_JobApplicationServiceTest.coverage" NAME="Unittests for test_JobApplicationService.JobApplicationServiceTest Coverage Results" MODIFIED="1619869318574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
   </component>
 </project>
