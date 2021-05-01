@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Set up tests.">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yaml" afterDir="false" />
+    <list default="true" id="c72d36ee-d9ea-4ad5-b880-cf6c722e35ba" name="Default Changelist" comment="Set yaml build file and adjust environment variables.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +86,7 @@
       <recent name="D:\school\ing\swa\labs\rengars_marketplace\app\rengars_marketplace\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test_JobOfferService.JobOfferServiceTest">
+  <component name="RunManager" selected="Python.__main__">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -288,7 +287,7 @@
       <workItem from="1619290024541" duration="36296000" />
       <workItem from="1619371794288" duration="12792000" />
       <workItem from="1619560224416" duration="15907000" />
-      <workItem from="1619801450007" duration="26749000" />
+      <workItem from="1619801450007" duration="27206000" />
     </task>
     <task id="LOCAL-00001" summary="Remove User entity and replace it with ids. Remove update method for job offer. Adjust state of job offer.">
       <created>1619217914125</created>
@@ -353,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619871233242</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Set yaml build file and adjust environment variables.">
+      <created>1619874748890</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619874748890</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +385,8 @@
     <MESSAGE value="Create service layer." />
     <MESSAGE value="Refactoring." />
     <MESSAGE value="Set up tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Set up tests." />
+    <MESSAGE value="Set yaml build file and adjust environment variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Set yaml build file and adjust environment variables." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
