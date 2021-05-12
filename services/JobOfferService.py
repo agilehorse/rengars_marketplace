@@ -6,7 +6,7 @@ from models.JobApplicationState import JobApplicationState
 from models.JobOffer import JobOffer
 from models.JobOfferState import JobOfferState
 from models.RestException import RestException
-from models.User import User
+from services.external_services import get_user_info
 from utils.utils import get_next_id, remap_id
 
 
@@ -46,9 +46,7 @@ class JobOfferService:
     @staticmethod
     def create_job_offer(dto: CreateJobOfferDto) -> dict:
         job_offer = JobOffer.from_dto(dto)
-        # job_offer.poster = todo get user info from user service
-        fake_poster = User(dto.poster_id, "tests@email.com", datetime.now(), '+420 123 456 789')
-        job_offer.poster = fake_poster
+        job_offer.poster = get_user_info(dto.poster_id)
         job_offer.state = JobOfferState.OPEN
         job_offer.date_created = datetime.now()
 

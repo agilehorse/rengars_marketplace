@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-import os
 
-from App import application
+from App import application, APP_PORT
 
 if __name__ == '__main__':
-    application.run(port=os.environ.get("APP_PORT", 5000))
+    application.run(host="0.0.0.0", port=APP_PORT)

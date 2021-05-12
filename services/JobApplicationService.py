@@ -5,7 +5,7 @@ from models.CreateJobApplicationDto import CreateJobApplicationDto
 from models.JobApplication import JobApplication
 from models.JobApplicationState import JobApplicationState
 from models.RestException import RestException
-from models.User import User
+from services.external_services import get_user_info
 from utils.utils import get_next_id, remap_id
 
 
@@ -38,9 +38,7 @@ class JobApplicationService:
         job_application = JobApplication.from_dto(dto)
         job_application.state = JobApplicationState.NEW
         job_application.date_created = datetime.now()
-        # job_application.applicant = todo get user info from user service
-        fake_applicant = User(dto.applicant_id, "tests@email.com", datetime.now(), '+420 123 456 789')
-        job_application.applicant = fake_applicant
+        job_application.applicant = get_user_info(dto.applicant_id)
 
         json = job_application.to_dict()
         json['_id'] = get_next_id("applicationId")
