@@ -5,7 +5,7 @@ from models.CreateJobApplicationDto import CreateJobApplicationDto
 from models.JobApplication import JobApplication
 from models.JobApplicationState import JobApplicationState
 from models.RestException import RestException
-from services.external_services import get_user_info
+from services.ExternalServices import ExternalServices
 from utils.utils import get_next_id, remap_id
 
 
@@ -27,7 +27,6 @@ class JobApplicationService:
             raise RestException("errors.job_applications.read_only", 409, str(current_state))
 
         application.db.job_applications.update_one(query, {'$set': update_object})
-        # todo send event to other microservices
 
     @staticmethod
     def create_job_application(dto: CreateJobApplicationDto) -> dict:
@@ -38,12 +37,11 @@ class JobApplicationService:
         job_application = JobApplication.from_dto(dto)
         job_application.state = JobApplicationState.NEW
         job_application.date_created = datetime.now()
-        job_application.applicant = get_user_info(dto.applicant_id)
+        job_application.applicant = ExternalServices.get_user_info(dto.applicant_id)
 
         json = job_application.to_dict()
         json['_id'] = get_next_id("applicationId")
         application.db.job_applications.insert_one(json)
-        # todo send event to other microservices
         return remap_id(json)
 
     @staticmethod

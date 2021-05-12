@@ -6,7 +6,7 @@ from models.JobApplicationState import JobApplicationState
 from models.JobOffer import JobOffer
 from models.JobOfferState import JobOfferState
 from models.RestException import RestException
-from services.external_services import get_user_info
+from services.ExternalServices import ExternalServices
 from utils.utils import get_next_id, remap_id
 
 
@@ -46,7 +46,7 @@ class JobOfferService:
     @staticmethod
     def create_job_offer(dto: CreateJobOfferDto) -> dict:
         job_offer = JobOffer.from_dto(dto)
-        job_offer.poster = get_user_info(dto.poster_id)
+        job_offer.poster = ExternalServices.get_user_info(dto.poster_id)
         job_offer.state = JobOfferState.OPEN
         job_offer.date_created = datetime.now()
 
