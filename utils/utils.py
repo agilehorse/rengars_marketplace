@@ -36,10 +36,14 @@ static_errors = {
     "errors.job_offers.withdrawing_accepted": connexion.problem(409, 'Bad request',
                                                                 "Cannot withdraw a job offer for which there are some accepted applications!",
                                                                 "errors.job_offers.withdrawing_accepted"),
+    "errors.users.service_off": connexion.problem(503, 'Service unavailable',
+                                                  "Cannot obtain data from user service, because it is unavailable."
+                                                  "errors.users.service_off"),
 }
 non_static_errors = {
     "errors.job_applications.read_only": "Cannot change the application which has a final state: {}!",
     "errors.job_offers.read_only": "Cannot change the job offer which has a final state: {}!",
+    "errors.users.non_ok": '{}'
 }
 http_status_title = {
     400: 'Bad request',
@@ -48,7 +52,7 @@ http_status_title = {
 }
 
 
-def get_error_dto(error_type: str, http_status_code=400, parameter=None) -> ConnexionResponse:
+def get_error_dto(error_type: str, http_status_code: int = 400, parameter=None) -> ConnexionResponse:
     if parameter is None:
         return static_errors[error_type]
 
