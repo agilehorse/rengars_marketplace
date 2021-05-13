@@ -8,6 +8,7 @@ ENV GROUP_ID=1000 \
 WORKDIR /var/www/
 
 ADD . /var/www/
+RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN pip install gunicorn
 RUN pip install connexion[swagger-ui]
