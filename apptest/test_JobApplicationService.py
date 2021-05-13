@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from App import application
 from apptest import BaseTestCase
 from models.CreateJobApplicationDto import CreateJobApplicationDto
@@ -29,11 +31,14 @@ class JobApplicationServiceTest(BaseTestCase):
         actual = application.db.job_applications.find_one(query)
         self.assertEqual(new_state, actual['state'])
 
-    def test_create_job_application(self):
+    @patch('services.ExternalServices.ExternalServices.call_eureka')
+    def test_create_job_application(self, eureka_mock):
         job_offer = TestDataGenerator.get_job_offer()
         job_offer_id = job_offer['_id'] = job_offer.pop('id')
         application.db.job_offers.insert_one(job_offer)
-        expected = CreateJobApplicationDto.from_dict(TestDataGenerator.get_create_job_application_dto(job_offer_id))
+        json = TestDataGenerator.get_create_job_application_dto(job_offer_id)
+        eureka_mock.return_value = {"id": json['applicantId']}
+        expected = CreateJobApplicationDto.from_dict(json)
 
         actual = JobApplicationService.create_job_application(expected)
 

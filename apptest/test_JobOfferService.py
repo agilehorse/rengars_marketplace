@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from App import application
 from apptest import BaseTestCase
 from models.CreateJobOfferDto import CreateJobOfferDto
@@ -29,8 +31,11 @@ class JobOfferServiceTest(BaseTestCase):
         updated = application.db.job_offers.find_one(query)
         self.assertEqual(new_state, updated['state'])
 
-    def test_2(self):
-        dto = CreateJobOfferDto.from_dict(TestDataGenerator.get_create_job_offer_dto())
+    @patch('services.ExternalServices.ExternalServices.call_eureka')
+    def test_create_job_offer(self, eureka_mock):
+        json = TestDataGenerator.get_create_job_offer_dto()
+        eureka_mock.return_value = {"id": json['posterId']}
+        dto = CreateJobOfferDto.from_dict(json)
         offer = JobOfferService.create_job_offer(dto)
         self.assertEqual(dto.poster_id, offer['poster']['id'])
         self.assertEqual(dto.description, offer['description'])

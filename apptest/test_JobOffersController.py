@@ -2,6 +2,8 @@
 
 from __future__ import absolute_import
 
+from unittest.mock import patch
+
 from flask import json
 
 from App import application
@@ -14,12 +16,14 @@ from utils.utils import get_next_id
 class TestJobOffersController(BaseTestCase):
     """JobOffersController integration tests stubs"""
 
-    def test_create_job_offer(self):
+    @patch('services.ExternalServices.ExternalServices.call_eureka')
+    def test_create_job_offer(self, eureka_mock):
         """Test case for create_job_offer
 
         Creates a Job offer.
         """
         body = TestDataGenerator.get_create_job_offer_dto()
+        eureka_mock.return_value = {"id": body['posterId']}
         response = self.client.open(
             '/marketplace/jobOffers',
             method='POST',
