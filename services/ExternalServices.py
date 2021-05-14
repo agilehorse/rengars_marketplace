@@ -6,16 +6,16 @@ from flask import json
 from py_eureka_client import eureka_client
 
 # from App import message_queue
-from env_vars import EUREKA_EXCHANGE, EUREKA_URL, APP_PORT, RABBIT_URL
+from env_vars import EUREKA_EXCHANGE, EUREKA_URL, MARKETPLACE_PORT, RABBIT_URL
 from models.QueueMessage import QueueMessage
 from models.QueueMessageType import QueueMessageType
 from models.RestException import RestException
 from models.User import User
 
-if EUREKA_URL is not None:
+if EUREKA_URL:
     eureka_client.init(eureka_server=EUREKA_URL,
                        app_name="marketplace-service",
-                       instance_port=APP_PORT)
+                       instance_port=MARKETPLACE_PORT)
 
 message_queue_connection = None
 if RABBIT_URL is not None:
@@ -25,8 +25,10 @@ if RABBIT_URL is not None:
 
 class ExternalServices:
     @staticmethod
-    def call_eureka():
-        response = eureka_client.do_service("user-service", "/service/context/path", return_type='response_object')
+    def call_eureka(user_id):
+        if not EUREKA_URL:
+            return User(user_id)
+        response = eureka_client.do_service("user-service", "/users/" + user_id, return_type='response_object')
         status = response.status
         body = json.loads(response.read().decode('utf-8'))
         if status != 200:
@@ -36,7 +38,7 @@ class ExternalServices:
     @staticmethod
     def get_user_info(user_id):
         try:
-            body = ExternalServices.call_eureka()
+            body = ExternalServices.call_eureka(user_id)
         except Exception as e:
             print(e)
             raise RestException("errors.users.service_off", 503)

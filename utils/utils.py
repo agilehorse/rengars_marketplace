@@ -37,7 +37,7 @@ static_errors = {
                                                                 "Cannot withdraw a job offer for which there are some accepted applications!",
                                                                 "errors.job_offers.withdrawing_accepted"),
     "errors.users.service_off": connexion.problem(503, 'Service unavailable',
-                                                  "Cannot obtain data from user service, because it is unavailable."
+                                                  "Cannot obtain data from user service, because it is unavailable. "
                                                   "errors.users.service_off"),
 }
 non_static_errors = {

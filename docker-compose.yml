@@ -5,13 +5,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        MARKETPLACE_PORT: ${MARKETPLACE_PORT}
     container_name: flask
     image: python:3.9.4-alpine
     restart: unless-stopped
     environment:
-      APP_ENV: "prod"
+      APP_ENV: ${APP_ENV}
       APP_DEBUG: "False"
-      APP_PORT: ${APP_PORT}
+      MARKETPLACE_PORT: ${MARKETPLACE_PORT}
       EUREKA_URL: ${EUREKA_URL}
       EUREKA_EXCHANGE: ${EUREKA_EXCHANGE}
       MONGODB_DATABASE: ${MONGODB_DATABASE}
@@ -38,6 +40,7 @@ services:
       MONGODB_DATA_DIR: /data/db
       MONDODB_LOG_DIR: /dev/null
     volumes:
+      - "./mongo-init/:/docker-entrypoint-initdb.d/"
       - mongodbdata:/data/db
     networks:
       - backend
@@ -46,11 +49,13 @@ services:
     build:
       context: nginx
       dockerfile: Dockerfile
+      args:
+        BUILD_TYPE: ${APP_ENV}
     image: digitalocean.com/webserver:latest
     container_name: webserver
     restart: unless-stopped
     environment:
-      APP_ENV: "prod"
+      APP_ENV: ${APP_ENV}
       APP_NAME: "webserver"
       APP_DEBUG: "true"
       SERVICE_NAME: "webserver"
