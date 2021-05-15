@@ -11,7 +11,90 @@ tags:
     description: An api for manipulation with job offers.
   - name: Applications
     description: An api for manipulation with job applications
+  - name: Hello
+    description: An endpoint for quick verification that the app is running.
+  - name: Actuators
+    description: Implementation of spring actuators api for app monitoring.
 paths:
+  /:
+    get:
+      tags:
+        - Hello
+      operationId: hello
+      responses:
+        "200":
+          description: Returns hello if the application is running
+          content:
+            application/json:
+              schema:
+                type: string
+                x-content-type: application/json
+        "404":
+          description: The application is not running.
+      x-openapi-router-controller: controllers.hello_controller
+  /actuator:
+    get:
+      tags:
+        - Actuators
+      operationId: get_actuators
+      responses:
+        "200":
+          description: Checks health of the application.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+              example:
+                status: "UP"
+      x-openapi-router-controller: controllers.actuator_controller
+  /actuator/health:
+    get:
+      tags:
+        - Actuators
+      operationId: get_health
+      responses:
+        "200":
+          description: Checks health of the application.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+              example:
+                status: "UP"
+      x-openapi-router-controller: controllers.actuator_controller
+  /actuator/info:
+    get:
+      tags:
+        - Actuators
+      operationId: get_info
+      responses:
+        "200":
+          description: Gets info about the application
+          content:
+            application/json:
+              schema:
+                type: object
+      x-openapi-router-controller: controllers.actuator_controller
+  /actuator/shutDown:
+    get:
+      tags:
+        - Actuators
+      operationId: shut_down
+      responses:
+        "200":
+          description: Tries to gracefuly shut down the application.
+          content:
+            application/json:
+              schema:
+                type: object
+      x-openapi-router-controller: controllers.actuator_controller
+
   /marketplace/jobApplications:
     get:
       tags:

@@ -5,7 +5,6 @@ import pika
 from flask import json
 from py_eureka_client import eureka_client
 
-# from App import message_queue
 from env_vars import EUREKA_EXCHANGE, EUREKA_URL, MARKETPLACE_PORT, RABBIT_URL
 from models.QueueMessage import QueueMessage
 from models.QueueMessageType import QueueMessageType
