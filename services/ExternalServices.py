@@ -5,16 +5,20 @@ import pika
 from flask import json
 from py_eureka_client import eureka_client
 
-from env_vars import EUREKA_EXCHANGE, EUREKA_URL, MARKETPLACE_PORT, RABBIT_URL
+from env_vars import RABBIT_EXCHANGE, EUREKA_URL, MARKETPLACE_PORT, RABBIT_URL
 from models.QueueMessage import QueueMessage
 from models.QueueMessageType import QueueMessageType
 from models.RestException import RestException
 from models.User import User
 
+print(f"EUREKA_URL={EUREKA_URL}")
+
 if EUREKA_URL:
     eureka_client.init(eureka_server=EUREKA_URL,
                        app_name="marketplace-service",
-                       instance_port=MARKETPLACE_PORT)
+                       instance_port=MARKETPLACE_PORT,
+                       status_page_url="/actuator/info",
+                       health_check_url="/actuator/health")
 
 message_queue_connection = None
 if RABBIT_URL is not None:
@@ -54,7 +58,7 @@ class ExternalServices:
         """
         queue_message = QueueMessage(body['id'], event_type, body)
         try:
-            message_queue.basic_publish(exchange=EUREKA_EXCHANGE,
+            message_queue.basic_publish(exchange=RABBIT_EXCHANGE,
                                         body=queue_message)
         except Exception as e:
             print(e)
