@@ -1,3 +1,4 @@
+import atexit
 from os import environ
 
 import connexion
@@ -5,6 +6,7 @@ from flask_pymongo import PyMongo
 from mongomock.mongo_client import MongoClient as PyMongoMock
 
 from env_vars import APP_ENV
+from services.ExternalServices import ExternalServices
 
 application = connexion.App(__name__, specification_dir='swagger/')
 flask_app = application.app
@@ -17,3 +19,5 @@ else:
     application.db = PyMongo(flask_app).db
 
 application.add_api('swagger.yaml', arguments={'title': 'Rengars Marketplace API'})
+ExternalServices.create()
+atexit.register(ExternalServices.cleanup)

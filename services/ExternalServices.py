@@ -1,6 +1,3 @@
-import atexit
-import sys
-
 import pika
 from flask import json
 from py_eureka_client import eureka_client
@@ -11,22 +8,25 @@ from models.QueueMessageType import QueueMessageType
 from models.RestException import RestException
 from models.User import User
 
-print(f"EUREKA_URL={EUREKA_URL}")
-
-if EUREKA_URL:
-    eureka_client.init(eureka_server=EUREKA_URL,
-                       app_name="marketplace-service",
-                       instance_port=MARKETPLACE_PORT,
-                       status_page_url="/actuator/info",
-                       health_check_url="/actuator/health")
-
-message_queue_connection = None
-if RABBIT_URL is not None:
-    message_queue_connection = pika.BlockingConnection(pika.ConnectionParameters(RABBIT_URL))
-    message_queue = message_queue_connection.channel()
-
 
 class ExternalServices:
+    message_queue_connection = None
+    message_queue = None
+
+    @staticmethod
+    def create():
+        if EUREKA_URL:
+            eureka_client.init(eureka_server=EUREKA_URL,
+                               app_name="marketplace-service",
+                               instance_port=MARKETPLACE_PORT,
+                               status_page_url="/actuator/info",
+                               health_check_url="/actuator/health",
+                               )
+
+        if RABBIT_URL is not None and len(RABBIT_URL) > 1:
+            ExternalServices.message_queue_connection = pika.BlockingConnection(pika.ConnectionParameters(RABBIT_URL))
+            ExternalServices.message_queue = ExternalServices.message_queue_connection.channel()
+
     @staticmethod
     def call_eureka(user_id):
         if not EUREKA_URL:
@@ -58,17 +58,15 @@ class ExternalServices:
         """
         queue_message = QueueMessage(body['id'], event_type, body)
         try:
-            message_queue.basic_publish(exchange=RABBIT_EXCHANGE,
-                                        body=queue_message)
+            if ExternalServices.message_queue:
+                print("ASKING RABBIT")
+                ExternalServices.message_queue.basic_publish(exchange=RABBIT_EXCHANGE,
+                                                             body=queue_message)
         except Exception as e:
             print(e)
+        pass
 
-
-def cleanup_application():
-    print("closing")
-    if message_queue_connection is not None:
-        message_queue_connection.close()
-    sys.exit()
-
-
-atexit.register(cleanup_application)
+    @staticmethod
+    def cleanup():
+        if ExternalServices.message_queue_connection is not None:
+            ExternalServices.message_queue_connection.close()

@@ -1,6 +1,8 @@
+import sys
+
 from flask import request
 
-from services.ExternalServices import message_queue_connection
+from services.ExternalServices import ExternalServices
 
 
 def get_actuators():
@@ -22,10 +24,9 @@ def get_info():
 
 
 def shut_down():
-    if message_queue_connection is not None:
-        message_queue_connection.close()
     func = request.environ.get('werkzeug.server.shutdown')
     if func is None:
-        raise RuntimeError('Not running with the Werkzeug Server')
+        sys.exit(4)
+    ExternalServices.cleanup()
     func()
     return {}, 200

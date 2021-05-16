@@ -44,6 +44,7 @@ services:
       - "./mongo-init/:/docker-entrypoint-initdb.d/"
       - mongodbdata:/data/db
     networks:
+      - frontend
       - backend
 
   webserver:
