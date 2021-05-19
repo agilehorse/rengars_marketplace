@@ -1,4 +1,3 @@
-import atexit
 from os import environ
 
 import connexion
@@ -20,4 +19,3 @@ else:
 
 application.add_api('swagger.yaml', arguments={'title': 'Rengars Marketplace API'})
 ExternalServices.create()
-atexit.register(ExternalServices.cleanup)

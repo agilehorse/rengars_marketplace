@@ -5,6 +5,7 @@ from models.CreateJobOfferDto import CreateJobOfferDto
 from models.JobApplicationState import JobApplicationState
 from models.JobOffer import JobOffer
 from models.JobOfferState import JobOfferState
+from models.QueueMessageType import QueueMessageType
 from models.RestException import RestException
 from services.ExternalServices import ExternalServices
 from utils.utils import get_next_id, remap_id
@@ -41,7 +42,8 @@ class JobOfferService:
             update_object['dateClosed'] = datetime.now()
 
         application.db.job_offers.update_one(query, {'$set': update_object})
-        # todo send event to other microservices
+        job_offer['state'] = new_state
+        ExternalServices.publish_to_message_queue(QueueMessageType.JOB_OFFER_CREATED, job_offer)
 
     @staticmethod
     def create_job_offer(dto: CreateJobOfferDto) -> dict:
@@ -53,11 +55,12 @@ class JobOfferService:
         json = job_offer.to_dict()
         json['_id'] = get_next_id("offerId")
         application.db.job_offers.insert_one(json)
-        # todo send event to other microservices
-        return remap_id(json)
+        json = remap_id(json)
+        ExternalServices.publish_to_message_queue(QueueMessageType.JOB_OFFER_CREATED, json)
+        return json
 
     @staticmethod
     def find_job_offers():
-        job_applications = list(application.db.job_applications.find())
+        job_applications = list(application.db.job_offers.find())
         # we need to remap mongodb '_id' to 'id'
         return list(map(remap_id, job_applications))
