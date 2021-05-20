@@ -12,21 +12,27 @@ from models.User import User
 class ExternalServices:
     message_queue_connection = None
     message_queue = None
+    eureka_on = False
 
     @staticmethod
     def create():
-        if EUREKA_URL:
-            eureka_client.init(eureka_server=EUREKA_URL,
-                               app_name="marketplace-service",
-                               instance_host="localhost",
-                               instance_port=MARKETPLACE_PORT,
-                               status_page_url="/actuator/info",
-                               health_check_url="/actuator/health",
-                               home_page_url="/ui")
-        else:
-            raise Exception("EUREKA_URL not defined!")
-
+        ExternalServices.init_eureka()
         ExternalServices.init_rabbit()
+
+    @staticmethod
+    def init_eureka():
+        if EUREKA_URL:
+            try:
+                eureka_client.init(eureka_server=EUREKA_URL,
+                                   app_name="marketplace-service",
+                                   instance_host="localhost",
+                                   instance_port=MARKETPLACE_PORT,
+                                   status_page_url="/actuator/info",
+                                   health_check_url="/actuator/health",
+                                   home_page_url="/ui")
+            except Exception as e:
+                print(e)
+                ExternalServices.eureka_on = False
 
     @staticmethod
     def init_rabbit():
@@ -47,17 +53,25 @@ class ExternalServices:
     def call_eureka(user_id):
         if not EUREKA_URL:
             return {'id': user_id}
+        if not ExternalServices.eureka_on:
+            ExternalServices.init_eureka()
+            if not ExternalServices.eureka_on:
+                raise Exception()
+
         response = eureka_client.do_service("user-service", "/users/" + user_id, return_type='response_object')
         status = response.status
         body = json.loads(response.read().decode('utf-8'))
         if status != 200:
-            raise RestException("errors.users.non_ok", status, body)
+            raise RestException("errors.users.non_ok", 503, body)
         return body
 
     @staticmethod
     def get_user_info(user_id):
         try:
             body = ExternalServices.call_eureka(user_id)
+        except RestException as re:
+            print(re)
+            raise re
         except Exception as e:
             print(e)
             raise RestException("errors.users.service_off", 503)
@@ -74,6 +88,8 @@ class ExternalServices:
         """
         if ExternalServices.message_queue_connection is None:
             ExternalServices.init_rabbit()
+            if ExternalServices.message_queue_connection is None:
+                return
 
         queue_message = QueueMessage(body['id'], event_type, body)
         try:

@@ -11,15 +11,15 @@ tags:
     description: An api for manipulation with job offers.
   - name: Applications
     description: An api for manipulation with job applications
-  - name: Hello
-    description: An endpoint for quick verification that the app is running.
+  - name: Main
+    description: A main endpoint of the app
   - name: Actuators
     description: Implementation of spring actuators api for app monitoring.
 paths:
   /:
     get:
       tags:
-        - Hello
+        - Main
       operationId: hello
       responses:
         "200":
@@ -31,7 +31,7 @@ paths:
                 x-content-type: application/json
         "404":
           description: The application is not running.
-      x-openapi-router-controller: controllers.hello_controller
+      x-openapi-router-controller: controllers.main_controller
   /actuator:
     get:
       tags:

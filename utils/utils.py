@@ -48,7 +48,8 @@ non_static_errors = {
 http_status_title = {
     400: 'Bad request',
     404: 'Not found',
-    409: 'Conflict'
+    409: 'Conflict',
+    503: 'Service Unavailable'
 }
 
 
