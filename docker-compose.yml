@@ -1,7 +1,26 @@
 version: '3'
 
 services:
-
+  eureka:
+    build:
+      context: ../rengars_eureka
+      dockerfile: "Dockerfile"
+    container_name: eureka
+    restart: unless-stopped
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+  rabbit:
+    image: rabbitmq:3-management
+    container_name: rabbit
+    expose:
+      - 5672
+    ports:
+      - "15672:15672"
+    restart: unless-stopped
+    networks:
+      - backend
   flask:
     build:
       context: .
@@ -26,6 +45,8 @@ services:
       - appdata:/var/www
     depends_on:
       - mongodb
+      - eureka
+      - rabbit
     networks:
       - frontend
       - backend
