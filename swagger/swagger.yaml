@@ -36,7 +36,7 @@ paths:
     get:
       tags:
         - Main
-      operationId: eureka
+      operationId: call_eureka
       responses:
         "200":
           description: Tries to connect to eureka server

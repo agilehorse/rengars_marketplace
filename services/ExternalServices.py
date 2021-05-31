@@ -30,6 +30,7 @@ class ExternalServices:
                                    status_page_url="/actuator/info",
                                    health_check_url="/actuator/health",
                                    home_page_url="/ui")
+                ExternalServices.eureka_on = True
             except Exception as e:
                 print(e)
                 ExternalServices.eureka_on = False

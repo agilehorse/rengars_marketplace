@@ -8,7 +8,7 @@ def hello():
     return "Hello", 200
 
 
-def eureka():
+def call_eureka():
     if not EUREKA_URL:
         return connexion.problem(500, "Internal Server error", "Eureka url not set", "errors.eureka")
     if not ExternalServices.eureka_on:
@@ -16,5 +16,6 @@ def eureka():
         if not ExternalServices.eureka_on:
             return connexion.problem(500, "Internal Server error",
                                      "Unable to connect to eureka, the server might not be running", "errors.eureka")
+        return "Connected to eureka", 200
 
-        return "OK", 200
+    return "Already connected to eureka", 200
