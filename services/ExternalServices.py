@@ -1,4 +1,5 @@
 import pika
+import requests
 from flask import json
 from py_eureka_client import eureka_client
 
@@ -59,12 +60,17 @@ class ExternalServices:
             if not ExternalServices.eureka_on:
                 raise Exception()
 
-        response = eureka_client.do_service("user-service", f"/users/{user_id}", return_type='response_object')
-        status = response.status
-        body = json.loads(response.read().decode('utf-8'))
-        if status != 200:
-            raise RestException("errors.users.non_ok", status, body)
-        return body
+        instances = eureka_client.get_client().applications.get_application("USER-SERVICE").up_instances
+        if len(instances) > 0:
+            instance = instances[0]
+            url = f"http://{instance.hostName}:{instance.port.port}/users/{user_id}"
+            response = requests.get(url)
+            status = response.status_code
+            body = json.loads(response.text)
+            if status != 200:
+                raise RestException("errors.users.non_ok", status, body)
+            return body
+        raise RestException("errors.users.non_ok", 503)
 
     @staticmethod
     def get_user_info(user_id):
