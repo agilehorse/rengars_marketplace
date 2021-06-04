@@ -49,7 +49,7 @@ class ExternalServices:
                 return
 
             ExternalServices.message_queue = ExternalServices.message_queue_connection.channel()
-            ExternalServices.message_queue.exchange_declare(exchange=RABBIT_EXCHANGE)
+            ExternalServices.message_queue.exchange_declare(exchange=RABBIT_EXCHANGE, durable=True, exchange_type='fanout')
 
     @staticmethod
     def call_eureka(user_id):
@@ -102,7 +102,7 @@ class ExternalServices:
         try:
             if ExternalServices.message_queue:
                 ExternalServices.message_queue.basic_publish(exchange=RABBIT_EXCHANGE,
-                                                             body=queue_message.to_str(),
+                                                             body=queue_message.toJSON(),
                                                              routing_key='')
         except Exception as e:
             print(e)
