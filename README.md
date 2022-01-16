@@ -1,4 +1,8 @@
-# Swagger generated server
+# Rengars marketplace
+
+The main repository: [SWA_Rengars](https://github.com/VaSmitka/SWA_Rengars)
+
+
 
 ## Overview
 
